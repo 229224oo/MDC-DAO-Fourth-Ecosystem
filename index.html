@@ -236,6 +236,7 @@
     <p class="sub">通缩为核 · LP 挖矿产出 · 只能卖不能买。MMC 链上持续销毁，流通量缩减到极致，稀缺即价值。</p>
     <div class="hero-cta">
       <a class="cta cta-gold" href="#shareholder">🚀 成为股东</a>
+      <a class="cta cta-ghost" href="mmc-ppt.html">🎓 课件</a>
       <a class="cta cta-ghost" href="#mechanism">了解机制</a>
     </div>
     <div class="hero-stats">
@@ -277,7 +278,7 @@
         </div>
 
         <div class="sh-action">
-          <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">🚀 立即成为股东（转 500 USDT）</button>
+          <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">🚀 立即成为股东（捐赠 500 USDT）</button>
           <div class="addr-line">
             多签收款：<span id="receiverAddr">0x05c4af123f5589d37e54b63e57dc0a7fcadcf4c9</span>
             <button class="copy-mini" onclick="copyText('0x05c4af123f5589d37e54b63e57dc0a7fcadcf4c9', this)">复制</button>
@@ -385,7 +386,8 @@
         <div class="vis">遇见造化 · 我命由我</div>
         <div class="name">MDC 遇见社区　·　社区宣</div>
         <div class="hero-cta" style="margin-top:24px;">
-          <a class="cta cta-gold" href="#shareholder">成为创世股东</a>
+          <a class="cta cta-gold" href="#shareholder">成为创世股东的权益</a>
+          <a class="cta cta-ghost" href="mmc-ppt.html">🎓 课件</a>
           <a class="cta cta-ghost" href="mmc-whitepaper.html">阅读白皮书</a>
         </div>
       </div>
@@ -494,7 +496,7 @@
         btn.textContent = '✅ 您已成为创世股东';
       } else {
         btn.disabled = false;
-        btn.textContent = '🚀 立即成为股东（转 500 USDT）';
+        btn.textContent = '🚀 立即成为股东（捐赠 500 USDT）';
       }
     }
 
@@ -516,7 +518,7 @@
         modal('⏳', '交易已提交', '正在等待区块确认，请稍候...<br><br>TX: ' + short(tx.hash));
         await tx.wait();
         localStorage.setItem(key, tx.hash);
-        modal('🎉', '恭喜成为创世股东！', '500 USDT 转账成功，您已是 MMC 创世股东。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
+        modal('🎉', '恭喜成为创世股东！', '500 USDT 捐赠成功，您已是 MMC 创世股东。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
         refreshShareStatus();
       } catch (e) {
         const msg = (e && e.data && e.data.message) || (e && e.message) || '交易被取消或失败。';
