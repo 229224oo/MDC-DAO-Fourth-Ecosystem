@@ -100,6 +100,7 @@
       filter: drop-shadow(0 8px 40px rgba(45,212,191,0.3));
     }
     .hero .slogan { font-size: clamp(18px, 3.6vw, 30px); font-weight: 800; margin: 14px 0 6px; letter-spacing: 6px; color: #fff; }
+
     .hero .native-line { display: inline-block; font-size: clamp(13px, 2.2vw, 16px); font-weight: 800; color: #04130f; background: linear-gradient(135deg, var(--teal), var(--emerald)); padding: 9px 22px; border-radius: 30px; margin: 12px 0 4px; box-shadow: 0 8px 26px rgba(16,185,129,0.35); }
     .hero .sub { font-size: clamp(14px, 2.4vw, 17px); color: var(--muted); max-width: 620px; margin: 14px auto 30px; }
     .hero .sub b { color: #eafff9; }
@@ -136,7 +137,6 @@
       transition: transform .25s, border-color .25s;
     }
     .card:hover { transform: translateY(-5px); border-color: rgba(45,212,191,0.35); }
-    .card .ic { font-size: 26px; margin-bottom: 10px; }
     .card .ct { font-size: 17px; font-weight: 800; color: #fff; margin-bottom: 7px; }
     .card .cd { font-size: 13.5px; color: #aeb7c7; line-height: 1.75; }
     .card .cd b { color: var(--gold); }
@@ -161,12 +161,6 @@
     .benefit {
       display: flex; gap: 14px; padding: 20px; border-radius: 16px;
       background: rgba(0,0,0,0.28); border: 1px solid rgba(245,196,81,0.18);
-    }
-    .benefit .bi {
-      flex-shrink: 0; width: 46px; height: 46px; border-radius: 13px; font-size: 22px;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, rgba(245,196,81,0.22), rgba(45,212,191,0.16));
-      border: 1px solid rgba(245,196,81,0.3);
     }
     .benefit .bt { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 3px; }
     .benefit .bd { font-size: 13px; color: #b6bfd0; line-height: 1.7; }
@@ -201,6 +195,17 @@
     .pie-d .pt { font-weight: 800; color: #fff; font-size: 15px; }
     .pie-d .pd { font-size: 12.5px; color: var(--muted); }
 
+    /* M1-M6 等级权益表 */
+    .mtable-wrap { overflow-x: auto; margin-top: 18px; border-radius: 16px; border: 1px solid var(--line); -webkit-overflow-scrolling: touch; }
+    .mtable { width: 100%; border-collapse: collapse; min-width: 540px; background: rgba(0,0,0,0.26); }
+    .mtable th, .mtable td { padding: 13px 10px; text-align: center; font-size: 13.5px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    .mtable thead th { background: linear-gradient(135deg, rgba(45,212,191,0.16), rgba(245,196,81,0.12)); color: #eafff9; font-weight: 800; letter-spacing: .5px; }
+    .mtable tbody tr:last-child td { border-bottom: none; }
+    .mtable tbody tr:hover { background: rgba(45,212,191,0.06); }
+    .mtable .lv { font-weight: 900; font-size: 15px; background: linear-gradient(135deg, var(--teal), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .mtable .rate { color: var(--gold); font-weight: 800; }
+    .mtable td b { color: #eafff9; }
+
     .step { position: relative; padding: 16px 18px 16px 56px; border-radius: 14px; background: rgba(0,0,0,0.26); border: 1px solid var(--line); margin-bottom: 12px; }
     .step .num { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #04130f; background: linear-gradient(135deg, var(--teal), var(--emerald)); }
     .step .st { font-weight: 800; color: #fff; font-size: 15px; }
@@ -222,7 +227,6 @@
       background: linear-gradient(160deg, #131c28, #0b121c); border: 1px solid rgba(45,212,191,0.3);
       box-shadow: 0 30px 80px rgba(0,0,0,0.6);
     }
-    .modal .m-ic { font-size: 44px; margin-bottom: 12px; }
     .modal .m-title { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px; }
     .modal .m-text { font-size: 14px; color: #b6bfd0; line-height: 1.8; word-break: break-word; }
     .modal .m-text a { color: var(--teal); }
@@ -417,21 +421,21 @@
     <span class="eyebrow">MMC · MDC 生态原生代币 · 全球最新</span>
     <h1>MMC-MDC 原生代币</h1>
     <div class="slogan">遇见造化 · 我命由我</div>
-    <p class="native-line">🟢 <b>MMC = MDC 原生代币</b>　·　与 MDC 生态同根同源</p>
+    <p class="native-line"><b>MMC = MDC 原生代币</b>　·　与 MDC 生态同根同源</p>
     <p class="sub"><b>MMC 是 MDC 生态的原生代币</b>：通缩为核 · LP 挖矿产出 · 只能卖不能买。MMC 链上持续销毁，流通量缩减到极致，稀缺即价值。</p>
     <div class="hero-cta">
-      <a class="cta cta-gold" href="#shareholder">⛏️ 初代矿主</a>
-      <a class="cta cta-ghost" href="docs/mmc-ppt.html">🎓 课件</a>
+      <a class="cta cta-gold" href="#shareholder">初代矿主</a>
+      <a class="cta cta-ghost" href="docs/mmc-ppt.html">课件</a>
       <a class="cta cta-ghost" href="#mechanism">了解机制</a>
     </div>
     <div class="hero-cta" style="margin-top:14px;">
-      <a class="cta cta-ghost" href="https://mdcdefi.com" target="_blank" rel="noopener">🌐 第二生态</a>
-      <a class="cta cta-ghost" href="https://dao.mdcdefi.com" target="_blank" rel="noopener">🏛️ 第三生态</a>
+      <a class="cta cta-ghost" href="https://mdcdefi.com" target="_blank" rel="noopener">第二生态</a>
+      <a class="cta cta-ghost" href="https://dao.mdcdefi.com" target="_blank" rel="noopener">第三生态</a>
       <a class="cta cta-ghost" href="https://t.me/SunDaoGlobal" target="_blank" rel="noopener" aria-label="Telegram 社区">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
         Telegram
       </a>
-      <button class="cta cta-ghost" type="button" style="font-family:inherit;cursor:pointer;" onclick="copyText('https://t.me/SunDaoGlobal', this)">📋 复制 TG 链接</button>
+      <button class="cta cta-ghost" type="button" style="font-family:inherit;cursor:pointer;" onclick="copyText('https://t.me/SunDaoGlobal', this)">复制 TG 链接</button>
     </div>
     <div class="hero-stats">
       <div class="hstat"><div class="v">100 万枚</div><div class="l">发行总量</div></div>
@@ -449,26 +453,23 @@
         <div style="text-align:center;">
           <span class="sh-badge">GENESIS MINERS · 创世矿工招募</span>
           <div class="sh-title">成为 <span class="g">MMC 初代矿工 · Genesis Miners</span></div>
-          <div class="sh-price">⛏️ 矿工权益说明</div>
+          <div class="sh-price">矿工权益说明</div>
         </div>
 
         <div class="benefits">
           <div class="benefit">
-            <div class="bi">⛏️</div>
             <div><div class="bt">挖 MMC 创世区块</div><div class="bd">创世初期全网算力极小，每个区块都挖出最多的金矿，初代矿工独享最厚产出。</div></div>
           </div>
           <div class="benefit">
-            <div class="bi">⚡</div>
             <div><div class="bt">个人算力 · 稳定出块</div><div class="bd">全网矿机极少，不存在抢算力、矿池、大型矿场，个人算力就能稳定出块、拿全额奖励。</div></div>
           </div>
           <div class="benefit">
-            <div class="bi">📈</div>
             <div><div class="bt">超高收益周期</div><div class="bd">总矿场每天 0.7%，早期每台矿机都有超高收益，初代矿工完整吃到最高奖励周期。</div></div>
           </div>
         </div>
 
         <div class="sh-action">
-          <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">🚀 立即申请初代矿主 · 挖 MMC 创世区块</button>
+          <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">立即申请初代矿主 · 挖 MMC 创世区块</button>
           <div class="sh-note">点击按钮将通过你的 Web3 钱包自动向 MDC 共建社区国库 捐赠 500 USDT（BSC）申请初代矿主。每个地址限购一份，请确认网络为 BNB Smart Chain。</div>
         </div>
       </div>
@@ -482,17 +483,17 @@
         <div class="sec-desc">不能买，只能卖；唯有通过 LP 挖矿产出。每日通缩，越销越稀缺。</div>
       </div>
       <div class="grid g3" style="margin-bottom:16px;">
-        <div class="card"><div class="ic">🔥</div><div class="ct">0.3% 黑洞销毁</div><div class="cd">每日 LP 底池通缩的主力，代币<b>永久销毁</b>，流通量不可逆缩减。</div></div>
-        <div class="card"><div class="ic">⛏️</div><div class="ct">0.7% 进入矿机池</div><div class="cd">为矿机算力提供持续产出燃料，反哺挖矿生态。</div></div>
-        <div class="card"><div class="ic">💧</div><div class="ct">1% LP 分红</div><div class="cd">按<b>区块实时分红</b>给 LP 持有者，持币挖矿即享被动收益。</div></div>
+        <div class="card"><div class="ct">0.3% 黑洞销毁</div><div class="cd">每日 LP 底池通缩的主力，代币<b>永久销毁</b>，流通量不可逆缩减。</div></div>
+        <div class="card"><div class="ct">0.7% 矿机分红</div><div class="cd">按算力分红给矿机持有者，为挖矿生态提供持续产出燃料。</div></div>
+        <div class="card"><div class="ct">1% LP 分红</div><div class="cd">按<b>区块实时分红</b>给 LP 持有者，持币挖矿即享被动收益。</div></div>
       </div>
       <div class="grid g2">
         <div class="card">
-          <div class="ct">💱 卖出机制</div>
+          <div class="ct">卖出机制</div>
           <div class="cd">把 <b>MMC</b> 转进合约地址，<b>MDC 马上到账钱包</b>，一笔交易直接到账，无需提前授权。</div>
         </div>
         <div class="card">
-          <div class="ct">🔓 撤 LP 规则</div>
+          <div class="ct">撤 LP 规则</div>
           <ul class="rules">
             <li>MDC <b>全部到账</b></li>
             <li>MMC <b>70% 销毁</b></li>
@@ -501,7 +502,7 @@
           </ul>
         </div>
       </div>
-      <div class="sh-statement" style="margin-top:22px;">🔒 完全去中心化 · 合约规则全部上链固化，任何人（包括项目方）都无法更改代码与规则。</div>
+      <div class="sh-statement" style="margin-top:22px;">完全去中心化 · 合约规则全部上链固化，任何人（包括项目方）都无法更改代码与规则。</div>
     </section>
 
     <!-- 资金分配 -->
@@ -509,13 +510,43 @@
       <div class="sec-head">
         <div class="sec-tag">FUND ALLOCATION</div>
         <div class="sec-title">资金 <span class="g">分配模型</span></div>
+        <div class="sec-desc">每笔入金链上自动分配，公开透明 · 合计 100%</div>
       </div>
       <div class="pie">
-        <div class="pie-item"><div class="pie-pct">60%</div><div class="pie-d"><div class="pt">组 LP</div><div class="pd">50% 买 MMC + 50% MDC 组合成 LP</div></div></div>
-        <div class="pie-item"><div class="pie-pct">25%</div><div class="pie-d"><div class="pt">拉盘矿池</div><div class="pd">分 30 次拉盘，稳健护盘</div></div></div>
-        <div class="pie-item"><div class="pie-pct">10%</div><div class="pie-d"><div class="pt">推荐奖励</div><div class="pd">6% 直推 + 4% 间推</div></div></div>
-        <div class="pie-item"><div class="pie-pct">5%</div><div class="pie-d"><div class="pt">卡牌分红</div><div class="pd">回馈卡牌持有者</div></div></div>
+        <div class="pie-item"><div class="pie-pct">50%</div><div class="pie-d"><div class="pt">生态流动性</div><div class="pd">组建 MMC-LP 底池，夯实价格支撑</div></div></div>
+        <div class="pie-item"><div class="pie-pct">18%</div><div class="pie-d"><div class="pt">等级加权奖励</div><div class="pd">按 M1–M6 团队等级发放</div></div></div>
+        <div class="pie-item"><div class="pie-pct">12%</div><div class="pie-d"><div class="pt">联合股东红利</div><div class="pd">M1–M6 股东分池分红</div></div></div>
+        <div class="pie-item"><div class="pie-pct">9%</div><div class="pie-d"><div class="pt">直推奖励</div><div class="pd">直推 ≥ 10 MDC 为有效账户</div></div></div>
+        <div class="pie-item"><div class="pie-pct">8%</div><div class="pie-d"><div class="pt">直推排行榜</div><div class="pd">日榜前 10 名 5% + 周榜前 10 名 3%</div></div></div>
+        <div class="pie-item"><div class="pie-pct">3%</div><div class="pie-d"><div class="pt">创世卡牌</div><div class="pd">回馈创世卡牌持有者</div></div></div>
       </div>
+
+      <!-- M1-M6 团队等级权益表 -->
+      <div class="sec-head" style="margin-top:44px;margin-bottom:16px;">
+        <div class="sec-tag">TEAM LEVELS · M1–M6</div>
+        <div class="sec-title">团队 <span class="g">等级权益</span></div>
+        <div class="sec-desc">达成团队总业绩与直推业绩，解锁对应等级奖励与联合股东红利</div>
+      </div>
+      <div class="mtable-wrap">
+        <table class="mtable">
+          <thead>
+            <tr><th>等级</th><th>团队总业绩</th><th>直推业绩</th><th>等级奖励</th><th>股东红利</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="lv">M1</td><td><b>1,000</b> MDC</td><td><b>300</b> MDC</td><td class="rate">6%</td><td class="rate">2%</td></tr>
+            <tr><td class="lv">M2</td><td><b>10,000</b> MDC</td><td><b>3,000</b> MDC</td><td class="rate">5%</td><td class="rate">2%</td></tr>
+            <tr><td class="lv">M3</td><td><b>30,000</b> MDC</td><td><b>9,000</b> MDC</td><td class="rate">3%</td><td class="rate">3%</td></tr>
+            <tr><td class="lv">M4</td><td><b>100,000</b> MDC</td><td><b>30,000</b> MDC</td><td class="rate">2%</td><td class="rate">3%</td></tr>
+            <tr><td class="lv">M5</td><td><b>200,000</b> MDC</td><td><b>60,000</b> MDC</td><td class="rate">1%</td><td class="rate">1%</td></tr>
+            <tr><td class="lv">M6</td><td><b>300,000</b> MDC</td><td><b>90,000</b> MDC</td><td class="rate">1%</td><td class="rate">1%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="rules" style="margin-top:16px;">
+        <li><b>等级奖励</b>：按团队等级差发放，等级越高、奖励比例越高，逐级加权叠加</li>
+        <li><b>联合股东红利</b>：每个等级对应独立奖励池；首位达标的联合股东独享该池累积奖励，此后同级达标者共同均分</li>
+        <li><b>直推排行榜</b>：日榜前 10 名分 5%、周榜前 10 名分 3%</li>
+      </ul>
     </section>
 
     <!-- 创世卡牌权益 -->
@@ -526,11 +557,11 @@
         <div class="sec-desc">持有创世卡牌，享全生态三重分红 · 卡牌只能通过市场获取</div>
       </div>
       <div class="grid g3" style="margin-bottom:16px;">
-        <div class="card"><div class="ic">💵</div><div class="ct">进场分红 · 5% MDC</div><div class="cd">每笔进场入金，卡牌持有者按比例分得 <b>5% 的 MDC</b>。</div></div>
-        <div class="card"><div class="ic">💱</div><div class="ct">卖币分红 · 5% MMC</div><div class="cd">每笔卖币（MMC → MDC），卡牌持有者分得 <b>5% 的 MMC</b>。</div></div>
-        <div class="card"><div class="ic">🔓</div><div class="ct">撤 LP 分红 · 10% MMC</div><div class="cd">每笔撤出 LP，卡牌持有者分得 <b>10% 的 MMC</b>。</div></div>
+        <div class="card"><div class="ct">进场分红 · 3% MDC</div><div class="cd">每笔进场入金，卡牌持有者按比例分得 <b>3% 的 MDC</b>。</div></div>
+        <div class="card"><div class="ct">卖币滑点 · 5% MMC</div><div class="cd">每笔卖出 MMC 收取 <b>5% 滑点</b>，分配给卡牌持有者。</div></div>
+        <div class="card"><div class="ct">撤池分红 · 10% MMC</div><div class="cd">全网每笔撤出 LP，卡牌持有者分得 <b>10% 的 MMC</b>。</div></div>
       </div>
-      <div class="sh-statement" style="margin-top:6px;">🃏 创世卡牌<b>不可铸造、不可申购</b>，<b>只能通过市场获取</b>，数量恒定、稀缺即价值。</div>
+      <div class="sh-statement" style="margin-top:6px;">创世卡牌<b>不可铸造、不可申购</b>，<b>只能通过市场获取</b>，数量恒定、稀缺即价值。</div>
     </section>
 
     <!-- 矿机系统 -->
@@ -538,13 +569,14 @@
       <div class="sec-head">
         <div class="sec-tag">MINER SYSTEM</div>
         <div class="sec-title">矿机 <span class="g">MMC-122TH/s</span></div>
-        <div class="sec-desc">持有矿机凭证的地址，将自动在矿池挖矿产出 MMC。</div>
+        <div class="sec-desc">持有矿机凭证的地址，将自动在矿池挖矿产出 MMC。矿机即将在官网开售。</div>
       </div>
       <div class="grid g3">
-        <div class="card"><div class="ic">🔥</div><div class="ct">条件一 · 销毁</div><div class="cd">官网销毁价值 <b>500U 的 MMC</b>，即领 MMC-122TH/s 矿机凭证至钱包。</div></div>
-        <div class="card"><div class="ic">🎁</div><div class="ct">条件二 · 捐赠</div><div class="cd">捐赠 <b>1000 USDT</b> 直接领取矿机凭证，捐赠款<b>全部加进底池</b>。</div></div>
-        <div class="card"><div class="ic">🏆</div><div class="ct">条件三 · 业绩</div><div class="cd">直推业绩达 <b>5000 MDC</b>，官网<b>免费奖励</b>一台矿机凭证。</div></div>
+        <div class="card"><div class="ct">条件一 · 销毁</div><div class="cd">官网销毁价值 <b>500U 的 MMC</b>，即领 MMC-122TH/s 矿机凭证至钱包。</div></div>
+        <div class="card"><div class="ct">条件二 · 捐赠</div><div class="cd">捐赠 <b>1000 USDT</b> 直接领取矿机凭证，捐赠款<b>全部加进底池</b>。</div></div>
+        <div class="card"><div class="ct">条件三 · 业绩</div><div class="cd">直推业绩达 <b>5000 MDC</b>，官网<b>免费奖励</b>一台矿机凭证。</div></div>
       </div>
+      <div class="sh-statement" style="margin-top:18px;">初代矿机即将开售 · 全网算力极小，<b>初代矿机独享最厚创世产出与最高收益周期</b>，越早持有，单位算力挖矿越多、回本越快。</div>
     </section>
 
     <!-- 参与方式 -->
@@ -553,8 +585,9 @@
         <div class="sec-tag">HOW TO JOIN</div>
         <div class="sec-title">参与 <span class="g">方式</span></div>
       </div>
-      <div class="step"><span class="num">1</span><div><div class="st">入金方式</div><div class="sd"><b style="color:var(--gold)">持有 MDC 或者 USDT</b>，在官网入金完成封装，<b>MMC-LP 马上到账钱包</b>，一笔交易直接到账。</div></div></div>
-      <div class="step"><span class="num">2</span><div><div class="st">提现方式</div><div class="sd">把 <b style="color:var(--gold)">MMC 或者 MMC-LP</b> 转进 MMC 的合约地址，<b>MDC 立即到账钱包</b>。</div></div></div>
+      <div class="step"><span class="num">1</span><div><div class="st">捐赠组 LP</div><div class="sd">在官网<b style="color:var(--gold)">捐赠 MDC</b> 组合成 <b>MMC-LP</b>，获得 MMC-LP，<b>马上到账钱包</b>，一笔交易直接到账。</div></div></div>
+      <div class="step"><span class="num">2</span><div><div class="st">推荐绑定</div><div class="sd">通过<b style="color:var(--gold)">推荐链接</b>绑定推荐关系；须在官网<b>捐赠 MDC 获得 LP 后</b>方可完成有效绑定。</div></div></div>
+      <div class="step"><span class="num">3</span><div><div class="st">卖出提现</div><div class="sd">把 <b style="color:var(--gold)">MMC 或者 MMC-LP</b> 转进 MMC 的合约地址，<b>MDC 立即到账钱包</b>。</div></div></div>
     </section>
 
     <!-- 社区 -->
@@ -564,7 +597,7 @@
         <div class="vis">遇见造化 · 我命由我</div>
         <div class="hero-cta" style="margin-top:24px;">
           <a class="cta cta-gold" href="#shareholder">申请初代矿主</a>
-          <a class="cta cta-ghost" href="docs/mmc-ppt.html">🎓 课件</a>
+          <a class="cta cta-ghost" href="docs/mmc-ppt.html">课件</a>
           <a class="cta cta-ghost" href="docs/mmc-whitepaper.html">阅读白皮书</a>
         </div>
       </div>
@@ -580,7 +613,6 @@
   <!-- 弹窗 -->
   <div class="modal-mask" id="modalMask" onclick="closeModal(event)">
     <div class="modal" onclick="event.stopPropagation()">
-      <div class="m-ic" id="mIc">💎</div>
       <div class="m-title" id="mTitle">提示</div>
       <div class="m-text" id="mText"></div>
       <button class="m-btn" onclick="closeModal()">知道了</button>
@@ -606,8 +638,7 @@
 
     let provider, signer, account;
 
-    function modal(ic, title, text) {
-      document.getElementById('mIc').textContent = ic;
+    function modal(title, text) {
       document.getElementById('mTitle').textContent = title;
       document.getElementById('mText').innerHTML = text;
       document.getElementById('modalMask').classList.add('show');
@@ -663,7 +694,7 @@
     }
 
     async function connectWallet() {
-      if (!window.ethereum) { modal('🦊', '未检测到钱包', '请在 TP 钱包、币安钱包、MetaMask 等支持 BSC 的 Web3 钱包中打开本页面。'); return; }
+      if (!window.ethereum) { modal('未检测到钱包', '请在 TP 钱包、币安钱包、MetaMask 等支持 BSC 的 Web3 钱包中打开本页面。'); return; }
       try {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         await ensureBSC();
@@ -673,7 +704,7 @@
         updateWalletUI();
         refreshShareStatus();
       } catch (e) {
-        modal('⚠️', '连接失败', (e && e.message) ? e.message : '钱包连接被拒绝。');
+        modal('连接失败', (e && e.message) ? e.message : '钱包连接被拒绝。');
       }
     }
 
@@ -685,7 +716,7 @@
       const btn2 = document.getElementById('walletBtn2');
       if (btn2) {
         if (account) { btn2.textContent = short(account); btn2.classList.add('connected'); }
-        else { btn2.textContent = '💎 连接钱包'; btn2.classList.remove('connected'); }
+        else { btn2.textContent = '连接钱包'; btn2.classList.remove('connected'); }
       }
     }
 
@@ -693,17 +724,17 @@
       const btn = document.getElementById('shareBtn');
       if (account && localStorage.getItem('mmc_shareholder_' + account.toLowerCase())) {
         btn.disabled = true;
-        btn.textContent = '✅ 您已是 MMC 初代矿主';
+        btn.textContent = '您已是 MMC 初代矿主';
       } else {
         btn.disabled = false;
-        btn.textContent = '🚀 立即申请初代矿主 · 挖 MMC 创世区块';
+        btn.textContent = '立即申请初代矿主 · 挖 MMC 创世区块';
       }
     }
 
     async function becomeShareholder() {
       if (!signer) { await connectWallet(); if (!signer) return; }
       const key = 'mmc_shareholder_' + account.toLowerCase();
-      if (localStorage.getItem(key)) { modal('✅', '您已是初代矿主', '每个地址限申请一份，该地址已完成申请。'); return; }
+      if (localStorage.getItem(key)) { modal('您已是初代矿主', '每个地址限申请一份，该地址已完成申请。'); return; }
       const btn = document.getElementById('shareBtn');
       try {
         await ensureBSC();
@@ -711,18 +742,18 @@
         const dec = await usdt.decimals();
         const amount = ethers.utils.parseUnits(SHARE_PRICE, dec);
         const bal = await usdt.balanceOf(account);
-        if (bal.lt(amount)) { modal('💰', 'USDT 余额不足', '申请初代矿主需向以下 <b>MDC共建社区地址</b>转入 <b>500 USDT（BSC）</b>：<br><br><span style="font-family:monospace;font-size:13px;color:var(--teal);word-break:break-all;">' + RECEIVER + '</span> <button class="copy-mini" onclick="copyText(\'' + RECEIVER + '\', this)">复制</button><br><br>请确认余额充足后再试，或手动向该地址转账 500 USDT 完成捐赠。'); return; }
-        btn.disabled = true; btn.textContent = '⏳ 等待钱包确认...';
+        if (bal.lt(amount)) { modal('USDT 余额不足', '申请初代矿主需向以下 <b>MDC共建社区地址</b>转入 <b>500 USDT（BSC）</b>：<br><br><span style="font-family:monospace;font-size:13px;color:var(--teal);word-break:break-all;">' + RECEIVER + '</span> <button class="copy-mini" onclick="copyText(\'' + RECEIVER + '\', this)">复制</button><br><br>请确认余额充足后再试，或手动向该地址转账 500 USDT 完成捐赠。'); return; }
+        btn.disabled = true; btn.textContent = '等待钱包确认...';
         const tx = await usdt.transfer(RECEIVER, amount);
-        btn.textContent = '⏳ 交易确认中...';
-        modal('⏳', '交易已提交', '正在等待区块确认，请稍候...<br><br>TX: ' + short(tx.hash));
+        btn.textContent = '交易确认中...';
+        modal('交易已提交', '正在等待区块确认，请稍候...<br><br>TX: ' + short(tx.hash));
         await tx.wait();
         localStorage.setItem(key, tx.hash);
-        modal('🎉', '恭喜成为 MMC 初代矿主！', '500 USDT 捐赠成功，您已是 MMC 创世矿工。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
+        modal('恭喜成为 MMC 初代矿主！', '500 USDT 捐赠成功，您已是 MMC 创世矿工。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
         refreshShareStatus();
       } catch (e) {
         const msg = (e && e.data && e.data.message) || (e && e.message) || '交易被取消或失败。';
-        modal('⚠️', '交易未完成', msg);
+        modal('交易未完成', msg);
       } finally {
         refreshShareStatus();
       }
