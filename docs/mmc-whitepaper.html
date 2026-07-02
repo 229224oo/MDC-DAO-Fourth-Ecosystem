@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MDC 第四生态 · 项目白皮书</title>
+  <title>MDC 原生代币 · 项目白皮书</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -93,7 +93,7 @@
 </head>
 <body>
   <div class="topbar">
-    <div class="tb-logo">🟢 MDC 第四生态 · 白皮书</div>
+    <div class="tb-logo">🟢 MDC 原生代币 · 白皮书</div>
     <div class="tb-actions">
       <a class="tb-btn back" href="../index.html">← 返回 DApp</a>
       <button class="tb-btn dl" id="dlBtn" onclick="downloadWhitepaper()">📥 下载白皮书 (PDF)</button>
@@ -103,7 +103,7 @@
   <div class="wp">
     <div class="cover">
       <span class="badge">WHITEPAPER · V1.0</span>
-      <h1>MDC 第四生态</h1>
+      <h1>MDC 原生代币</h1>
       <div class="en">MEET · MY DESTINY</div>
       <p class="tagline">通缩为核 · LP 挖矿产出 · 只能卖不能买<br>MMC 链上持续销毁，流通量缩减到极致 —— 遇见造化，我命由我</p>
       <div class="meta">
@@ -132,7 +132,7 @@
 
     <div class="section" id="s1">
       <div class="section-head"><div class="num">01</div><h2>项目概述</h2></div>
-      <p><span class="hl">MMC</span> 是 MDC 生态推出的全新「第四生态」暴富机制代币，发行总量 <span class="hl">100 万枚</span>。MMC <span class="hl">不能买、只能卖</span>，唯一获取方式是通过 LP 挖矿产出。</p>
+      <p><span class="hl">MMC</span> 是 MDC 生态的原生代币，采用通缩暴富机制，发行总量 <span class="hl">100 万枚</span>。MMC <span class="hl">不能买、只能卖</span>，唯一获取方式是通过 LP 挖矿产出。</p>
       <p>通过每日通缩、黑洞销毁、矿机产出与 LP 实时分红，MMC 在链上持续销毁，流通量不断缩减、稀缺性不断增强，构建「越销越稀缺、越稀缺越有价值」的正向价值模型。</p>
       <p>MMC <span class="hl">完全去中心化</span>：所有规则全部以智能合约形式上链固化，<b>任何人（包括项目方）都无法更改代码与规则</b>，买卖、销毁、分红、挖矿全部由链上合约自动执行，公开透明、不可篡改。</p>
       <div class="card">
@@ -188,7 +188,7 @@
 
     <div class="section" id="s5">
       <div class="section-head"><div class="num">05</div><h2>商业模式解读</h2></div>
-      <p>MDC 第四生态的本质，是一台围绕「<span class="hl">通缩稀缺</span>」运转的<span class="hl">价值飞轮</span>。它用三组机制设计，把「买盘、供给、共识」三者锁进同一个正向循环：</p>
+      <p>MDC 原生代币的本质，是一台围绕「<span class="hl">通缩稀缺</span>」运转的<span class="hl">价值飞轮</span>。它用三组机制设计，把「买盘、供给、共识」三者锁进同一个正向循环：</p>
       <div class="grid-3">
         <div class="feat"><div class="ft">① 供给单边收缩</div><div class="fd">MMC <b>只能卖、不能买</b>，唯一来源是 LP 挖矿产出；叠加每日 2% 通缩与撤池 70% 销毁，<b>流通量单边、不可逆地缩减</b>，天然制造稀缺。</div></div>
         <div class="feat"><div class="ft">② 买盘持续注入</div><div class="fd">入金资金 <b>60% 组 LP、25% 分 30 次拉盘</b>，把外部资金沉淀为底池与持续上行动能，形成「价格地板 + 缓慢抬升」的双层支撑。</div></div>
@@ -291,7 +291,7 @@
         const pageH = canvas.height * pageW / canvas.width;
         const pdf = new jsPDF({ orientation: pageH >= pageW ? 'p' : 'l', unit: 'mm', format: [pageW, pageH] });
         pdf.addImage(imgData, 'JPEG', 0, 0, pageW, pageH);
-        pdf.save('MDC第四生态-白皮书.pdf');
+        pdf.save('MDC原生代币-白皮书.pdf');
       } catch (e) {
         alert('生成 PDF 失败，将改用浏览器打印。请在弹窗中选择“另存为 PDF”。');
         window.print();

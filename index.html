@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <meta name="theme-color" content="#8b5cf6">
   <meta property="og:title" content="MDC最新生态">
-  <meta property="og:description" content="MDC 第四生态 · 全球最新 · MMC 通缩机制">
+  <meta property="og:description" content="MDC 原生代币 · 全球最新 · MMC 通缩机制">
   <meta property="og:image" content="logo-512.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:image" content="logo-512.png">
@@ -100,7 +100,9 @@
       filter: drop-shadow(0 8px 40px rgba(45,212,191,0.3));
     }
     .hero .slogan { font-size: clamp(18px, 3.6vw, 30px); font-weight: 800; margin: 14px 0 6px; letter-spacing: 6px; color: #fff; }
+    .hero .native-line { display: inline-block; font-size: clamp(13px, 2.2vw, 16px); font-weight: 800; color: #04130f; background: linear-gradient(135deg, var(--teal), var(--emerald)); padding: 9px 22px; border-radius: 30px; margin: 12px 0 4px; box-shadow: 0 8px 26px rgba(16,185,129,0.35); }
     .hero .sub { font-size: clamp(14px, 2.4vw, 17px); color: var(--muted); max-width: 620px; margin: 14px auto 30px; }
+    .hero .sub b { color: #eafff9; }
     .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .cta {
       padding: 15px 30px; border-radius: 13px; font-size: 15px; font-weight: 800; cursor: pointer;
@@ -351,7 +353,7 @@
     <div class="brand"><span class="mark"><svg class="logo-ico"><use href="#mmcLogo"></use></svg></span><span>MMC<span class="grad"> · 您的MDC理财工具</span></span></div>
     <div class="nav-actions">
       <button class="btn-wallet" id="walletBtn" onclick="connectWallet()">连接钱包</button>
-      <button class="menu-btn" onclick="openMenu()" aria-label="打开菜单">☰ 菜单</button>
+      <button class="menu-btn" onclick="openMenu()" aria-label="打开菜单">菜单</button>
     </div>
   </nav>
 
@@ -363,7 +365,7 @@
       <button class="drawer-close" onclick="closeMenu()" aria-label="关闭菜单">&times;</button>
     </div>
     <div class="drawer-wallet">
-      <button class="btn-wallet" id="walletBtn2" onclick="connectWallet()">💎 连接钱包</button>
+      <button class="btn-wallet" id="walletBtn2" onclick="connectWallet()">连接钱包</button>
     </div>
     <nav class="drawer-body">
       <div class="drawer-group">
@@ -412,10 +414,11 @@
 
   <!-- Hero -->
   <header class="hero wrap">
-    <span class="eyebrow">MDC 全球最新 · 第四生态</span>
-    <h1>MDC 第四生态 · 全球最新</h1>
+    <span class="eyebrow">MMC · MDC 生态原生代币 · 全球最新</span>
+    <h1>MMC-MDC 原生代币</h1>
     <div class="slogan">遇见造化 · 我命由我</div>
-    <p class="sub">通缩为核 · LP 挖矿产出 · 只能卖不能买。MMC 链上持续销毁，流通量缩减到极致，稀缺即价值。</p>
+    <p class="native-line">🟢 <b>MMC = MDC 原生代币</b>　·　与 MDC 生态同根同源</p>
+    <p class="sub"><b>MMC 是 MDC 生态的原生代币</b>：通缩为核 · LP 挖矿产出 · 只能卖不能买。MMC 链上持续销毁，流通量缩减到极致，稀缺即价值。</p>
     <div class="hero-cta">
       <a class="cta cta-gold" href="#shareholder">⛏️ 初代矿主</a>
       <a class="cta cta-ghost" href="docs/mmc-ppt.html">🎓 课件</a>
