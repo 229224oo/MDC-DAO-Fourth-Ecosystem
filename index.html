@@ -141,7 +141,7 @@
     .card .cd { font-size: 13.5px; color: #aeb7c7; line-height: 1.75; }
     .card .cd b { color: var(--gold); }
 
-    /* 矿工招募板块 */
+    /* 创世卡牌招募板块 */
     .shareholder {
       position: relative; margin: 24px 0; padding: 44px 30px; border-radius: 26px; overflow: hidden;
       background:
@@ -382,11 +382,13 @@
       </div>
       <div class="drawer-group">
         <div class="drawer-group-label">生态权益</div>
-        <a class="drawer-link" href="#shareholder" onclick="closeMenu()"><span class="di"><svg><use href="#mmcLogo"></use></svg></span><span>初代矿主权益</span></a>
+        <a class="drawer-link" href="#genesis" onclick="closeMenu()"><span class="di"><svg><use href="#mmcLogo"></use></svg></span><span>创世卡牌认购</span></a>
         <a class="drawer-link" href="#cards" onclick="closeMenu()"><span class="di"><svg><use href="#mmcLogo"></use></svg></span><span>创世卡牌权益</span></a>
+        <a class="drawer-link" href="#perfcards" onclick="closeMenu()"><span class="di"><svg><use href="#mmcLogo"></use></svg></span><span>业绩卡牌</span></a>
       </div>
       <div class="drawer-group">
         <div class="drawer-group-label">全球最新生态资料</div>
+        <a class="drawer-link" href="cards-posters.html"><span class="di"><svg><use href="#mmcLogo"></use></svg></span><span>创世卡牌海报</span></a>
         <a class="drawer-link" href="docs/mmc-whitepaper.html"><span class="di"><svg><use href="#mmcLogo"></use></svg></span><span>项目白皮书</span></a>
         <a class="drawer-link" href="docs/mmc-ppt.html"><span class="di"><svg><use href="#mmcLogo"></use></svg></span><span>讲解课件</span></a>
       </div>
@@ -422,10 +424,10 @@
     <h1>MMC-MDC 原生代币</h1>
     <div class="slogan">遇见造化 · 我命由我</div>
     <p class="native-line"><b>MMC = MDC 原生代币</b>　·　与 MDC 生态同根同源</p>
-    <p class="sub"><b>MMC 是 MDC 生态的原生代币</b>：通缩为核 · LP 挖矿产出 · 只能卖不能买。MMC 链上持续销毁，流通量缩减到极致，稀缺即价值。</p>
+    <p class="sub"><b>MMC 是 MDC 生态的原生代币</b>：通缩为核 · LP 挖矿产出 · <b>$1000 前只能卖不能买</b>，达 $1000 自动开放买盘。链上持续销毁，稀缺即价值。</p>
     <div class="hero-cta">
-      <a class="cta cta-gold" href="#shareholder">初代矿主</a>
-      <a class="cta cta-ghost" href="docs/mmc-ppt.html">课件</a>
+      <a class="cta cta-gold" href="#genesis">创世卡牌 · 限量 120 张</a>
+      <a class="cta cta-ghost" href="cards-posters.html">卡牌海报</a>
       <a class="cta cta-ghost" href="#mechanism">了解机制</a>
     </div>
     <div class="hero-cta" style="margin-top:14px;">
@@ -440,37 +442,40 @@
     <div class="hero-stats">
       <div class="hstat"><div class="v">100 万枚</div><div class="l">发行总量</div></div>
       <div class="hstat"><div class="v">每日 2%</div><div class="l">LP 底池通缩</div></div>
-      <div class="hstat"><div class="v">只能卖</div><div class="l">唯 LP 挖矿产出</div></div>
-      <div class="hstat"><div class="v">122 TH/s</div><div class="l">矿机算力凭证</div></div>
+      <div class="hstat"><div class="v">$1000</div><div class="l">自动开放买盘</div></div>
+      <div class="hstat"><div class="v">仅 120 张</div><div class="l">创世卡牌限量</div></div>
     </div>
   </header>
 
   <main class="wrap">
 
-    <!-- 创世矿工招募 -->
-    <section class="block" id="shareholder">
+    <!-- 创世卡牌招募 -->
+    <section class="block" id="genesis">
       <div class="shareholder">
         <div style="text-align:center;">
-          <span class="sh-badge">GENESIS MINERS · 创世矿工招募</span>
-          <div class="sh-title">成为 <span class="g">MMC 初代矿工 · Genesis Miners</span></div>
-          <div class="sh-price">矿工权益说明</div>
+          <span class="sh-badge">GENESIS CARD · 创世卡牌招募</span>
+          <div class="sh-title">成为 <span class="g">MMC 创世股东 · Genesis Card</span></div>
+          <div class="sh-price">全网仅 <b>120 张</b> · 首批 <b>60 张</b>面向初创股东开放 · <b>500 美金 / 张</b> · 每地址限购 1 张</div>
         </div>
 
         <div class="benefits">
           <div class="benefit">
-            <div><div class="bt">挖 MMC 创世区块</div><div class="bd">创世初期全网算力极小，每个区块都挖出最多的金矿，初代矿工独享最厚产出。</div></div>
+            <div><div class="bt">卖税分红 · 终身权益</div><div class="bd">全网每一笔卖出税，创世卡牌独享——<b>买盘开放前分 20%</b>，开放后分 <b>2%</b>，持卡即被动收租。</div></div>
           </div>
           <div class="benefit">
-            <div><div class="bt">个人算力 · 稳定出块</div><div class="bd">全网矿机极少，不存在抢算力、矿池、大型矿场，个人算力就能稳定出块、拿全额奖励。</div></div>
+            <div><div class="bt">全网撤池分红 · 10% MMC</div><div class="bd">任何人撤出 MMC-LP，创世卡牌持有者共同瓜分其中 <b>10% 的 MMC</b>，越多人撤、卡牌越赚。</div></div>
           </div>
           <div class="benefit">
-            <div><div class="bt">超高收益周期</div><div class="bd">总矿场每天 0.7%，早期每台矿机都有超高收益，初代矿工完整吃到最高奖励周期。</div></div>
+            <div><div class="bt">恒定稀缺 · 仅 120 张</div><div class="bd">总量恒定、<b>分完即止</b>、每地址仅限 1 张，创世身份不可复制，稀缺即价值。</div></div>
+          </div>
+          <div class="benefit">
+            <div><div class="bt">创世股东身份</div><div class="bd">首批 60 张 <b>500 美金</b>面向初创股东，越早入局，越早锁定全生态终身分红权。</div></div>
           </div>
         </div>
 
         <div class="sh-action">
-          <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">立即申请初代矿主 · 挖 MMC 创世区块</button>
-          <div class="sh-note">点击按钮将通过你的 Web3 钱包自动向 MDC 共建社区国库 捐赠 500 USDT（BSC）申请初代矿主。每个地址限购一份，请确认网络为 BNB Smart Chain。</div>
+          <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">立即认购创世卡牌 · 500 USDT</button>
+          <div class="sh-note">点击按钮将通过你的 Web3 钱包自动向 MDC 共建社区国库 捐赠 <b>500 USDT（BSC）</b>认购创世卡牌。<b>每个地址限购 1 张</b>，请确认网络为 BNB Smart Chain。</div>
         </div>
       </div>
     </section>
@@ -480,20 +485,49 @@
       <div class="sec-head">
         <div class="sec-tag">CORE MECHANISM</div>
         <div class="sec-title">核心 <span class="g">通缩机制</span></div>
-        <div class="sec-desc">不能买，只能卖；唯有通过 LP 挖矿产出。每日通缩，越销越稀缺。</div>
+        <div class="sec-desc">$1000 前只能卖不能买，唯有 LP 挖矿产出；达 $1000 自动开放买盘。LP 底池<b>每日通缩 2%</b>，越销越稀缺。</div>
+      </div>
+
+      <div class="sec-head" style="margin-bottom:14px;">
+        <div class="sec-title" style="font-size:clamp(18px,3vw,24px);">每日 <span class="g">2% 通缩分配</span></div>
       </div>
       <div class="grid g3" style="margin-bottom:16px;">
-        <div class="card"><div class="ct">0.3% 黑洞销毁</div><div class="cd">每日 LP 底池通缩的主力，代币<b>永久销毁</b>，流通量不可逆缩减。</div></div>
-        <div class="card"><div class="ct">0.7% 矿机分红</div><div class="cd">按算力分红给矿机持有者，为挖矿生态提供持续产出燃料。</div></div>
-        <div class="card"><div class="ct">1% LP 分红</div><div class="cd">按<b>区块实时分红</b>给 LP 持有者，持币挖矿即享被动收益。</div></div>
+        <div class="card"><div class="ct">0.2% 黑洞销毁</div><div class="cd">代币<b>永久销毁</b>，流通量不可逆缩减，稀缺持续放大。</div></div>
+        <div class="card"><div class="ct">0.6% MDC-LP 质押分红</div><div class="cd">把 <b>MDC 的 LP（MDC+USDT）</b>质押在官网，按<b>算力权重</b>每天分得通缩的 0.6% MMC。算力加成：质押 4 月 <b>0.5 倍</b>、7 月 <b>1 倍</b>、9 月 <b>1.5 倍</b>、12 月 <b>2 倍</b>。</div></div>
+        <div class="card"><div class="ct">1.2% MMC 流动性挖矿</div><div class="cd">组 <b>MMC 流动性</b>挖矿，按<b>区块实时分红</b>，持币挖矿即享被动收益。</div></div>
       </div>
+
+      <div class="sec-head" style="margin:30px 0 14px;">
+        <div class="sec-title" style="font-size:clamp(18px,3vw,24px);">买卖 <span class="g">税率机制</span></div>
+      </div>
+      <div class="grid g2" style="margin-bottom:16px;">
+        <div class="card">
+          <div class="ct">买盘开放前（&lt; $1000）</div>
+          <ul class="rules">
+            <li>买入：<b>不开放</b>，只能卖 · 唯 LP 挖矿产出</li>
+            <li>卖税 <b>24%</b>：创世卡牌 <b>20%</b></li>
+            <li>团队业绩公约卡牌 <b>2%</b></li>
+            <li>回流底池归黑洞 <b>2%</b></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct">买盘开放后（≥ $1000）</div>
+          <ul class="rules">
+            <li>买税 <b>0</b>，自由买入</li>
+            <li>卖税下调为 <b>6%</b></li>
+            <li>创世卡牌由 20% 下调为 <b>2%</b></li>
+            <li>业绩卡牌 <b>2%</b> + 回流底池 <b>2%</b>（不变）</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="grid g2">
         <div class="card">
           <div class="ct">卖出机制</div>
           <div class="cd">把 <b>MMC</b> 转进合约地址，<b>MDC 马上到账钱包</b>，一笔交易直接到账，无需提前授权。</div>
         </div>
         <div class="card">
-          <div class="ct">撤 LP 规则</div>
+          <div class="ct">撤 MMC-LP 规则</div>
           <ul class="rules">
             <li>MDC <b>全部到账</b></li>
             <li>MMC <b>70% 销毁</b></li>
@@ -510,73 +544,144 @@
       <div class="sec-head">
         <div class="sec-tag">FUND ALLOCATION</div>
         <div class="sec-title">资金 <span class="g">分配模型</span></div>
-        <div class="sec-desc">每笔入金链上自动分配，公开透明 · 合计 100%</div>
+        <div class="sec-desc">每笔入金链上自动分配 · <b>50% 用户 · 50% 团队</b> · 公开透明</div>
       </div>
       <div class="pie">
-        <div class="pie-item"><div class="pie-pct">50%</div><div class="pie-d"><div class="pt">生态流动性</div><div class="pd">组建 MMC-LP 底池，夯实价格支撑</div></div></div>
-        <div class="pie-item"><div class="pie-pct">18%</div><div class="pie-d"><div class="pt">等级加权奖励</div><div class="pd">按 M1–M6 团队等级发放</div></div></div>
-        <div class="pie-item"><div class="pie-pct">12%</div><div class="pie-d"><div class="pt">联合股东红利</div><div class="pd">M1–M6 股东分池分红</div></div></div>
-        <div class="pie-item"><div class="pie-pct">9%</div><div class="pie-d"><div class="pt">直推奖励</div><div class="pd">直推 ≥ 10 MDC 为有效账户</div></div></div>
-        <div class="pie-item"><div class="pie-pct">8%</div><div class="pie-d"><div class="pt">直推排行榜</div><div class="pd">日榜前 10 名 5% + 周榜前 10 名 3%</div></div></div>
-        <div class="pie-item"><div class="pie-pct">3%</div><div class="pie-d"><div class="pt">创世卡牌</div><div class="pd">回馈创世卡牌持有者</div></div></div>
+        <div class="pie-item"><div class="pie-pct">50%</div><div class="pie-d"><div class="pt">组 LP · 归属用户</div><div class="pd">封装成 MMC-LP，归属用户，可随时撤池</div></div></div>
+        <div class="pie-item"><div class="pie-pct">18%</div><div class="pie-d"><div class="pt">等级奖励</div><div class="pd">6 个级别 · 同级不拿 · 按 M1–M6 发放</div></div></div>
+        <div class="pie-item"><div class="pie-pct">12%</div><div class="pie-d"><div class="pt">达标在榜分红</div><div class="pd">M1–M6 分别设池 · 达标在榜均分</div></div></div>
+        <div class="pie-item"><div class="pie-pct">9%</div><div class="pie-d"><div class="pt">直推奖励</div><div class="pd">账号需保持 10 枚在投才能拿</div></div></div>
+        <div class="pie-item"><div class="pie-pct">8%</div><div class="pie-d"><div class="pt">直推打榜分红</div><div class="pd">日榜前 10 名 5% + 周榜前 10 名 3%</div></div></div>
+        <div class="pie-item"><div class="pie-pct">3%</div><div class="pie-d"><div class="pt">团队业绩卡牌分红</div><div class="pd">回馈团队业绩公约卡牌持有者</div></div></div>
       </div>
+      <div class="sh-statement" style="margin-top:16px;">用户 50% 全部封装成 <b>MMC-LP 归属用户本人</b>，可随时撤池；团队 50% 按上述 A–E 项链上自动分配。</div>
 
       <!-- M1-M6 团队等级权益表 -->
       <div class="sec-head" style="margin-top:44px;margin-bottom:16px;">
         <div class="sec-tag">TEAM LEVELS · M1–M6</div>
         <div class="sec-title">团队 <span class="g">等级权益</span></div>
-        <div class="sec-desc">达成团队总业绩与直推业绩，解锁对应等级奖励与联合股东红利</div>
+        <div class="sec-desc">6 个级别 · 同级不拿 · 达成团队总业绩与直推业绩解锁对应等级奖励与达标在榜分红</div>
       </div>
       <div class="mtable-wrap">
         <table class="mtable">
           <thead>
-            <tr><th>等级</th><th>团队总业绩</th><th>直推业绩</th><th>等级奖励</th><th>股东红利</th></tr>
+            <tr><th>等级</th><th>团队总业绩</th><th>直推业绩</th><th>等级奖励</th><th>累计</th><th>达标在榜分红</th></tr>
           </thead>
           <tbody>
-            <tr><td class="lv">M1</td><td><b>1,000</b> MDC</td><td><b>300</b> MDC</td><td class="rate">6%</td><td class="rate">2%</td></tr>
-            <tr><td class="lv">M2</td><td><b>10,000</b> MDC</td><td><b>3,000</b> MDC</td><td class="rate">5%</td><td class="rate">2%</td></tr>
-            <tr><td class="lv">M3</td><td><b>30,000</b> MDC</td><td><b>9,000</b> MDC</td><td class="rate">3%</td><td class="rate">3%</td></tr>
-            <tr><td class="lv">M4</td><td><b>100,000</b> MDC</td><td><b>30,000</b> MDC</td><td class="rate">2%</td><td class="rate">3%</td></tr>
-            <tr><td class="lv">M5</td><td><b>200,000</b> MDC</td><td><b>60,000</b> MDC</td><td class="rate">1%</td><td class="rate">1%</td></tr>
-            <tr><td class="lv">M6</td><td><b>300,000</b> MDC</td><td><b>90,000</b> MDC</td><td class="rate">1%</td><td class="rate">1%</td></tr>
+            <tr><td class="lv">M1</td><td><b>1,000</b> MDC</td><td><b>300</b> MDC</td><td class="rate">6%</td><td>6%</td><td class="rate">1%</td></tr>
+            <tr><td class="lv">M2</td><td><b>10,000</b> MDC</td><td><b>3,000</b> MDC</td><td class="rate">5%</td><td>11%</td><td class="rate">2%</td></tr>
+            <tr><td class="lv">M3</td><td><b>30,000</b> MDC</td><td><b>9,000</b> MDC</td><td class="rate">3%</td><td>14%</td><td class="rate">3%</td></tr>
+            <tr><td class="lv">M4</td><td><b>100,000</b> MDC</td><td><b>30,000</b> MDC</td><td class="rate">2%</td><td>16%</td><td class="rate">3%</td></tr>
+            <tr><td class="lv">M5</td><td><b>200,000</b> MDC</td><td><b>60,000</b> MDC</td><td class="rate">1%</td><td>17%</td><td class="rate">2%</td></tr>
+            <tr><td class="lv">M6</td><td><b>300,000</b> MDC</td><td><b>90,000</b> MDC</td><td class="rate">1%</td><td>18%</td><td class="rate">1%</td></tr>
           </tbody>
         </table>
       </div>
       <ul class="rules" style="margin-top:16px;">
-        <li><b>等级奖励</b>：按团队等级差发放，等级越高、奖励比例越高，逐级加权叠加</li>
-        <li><b>联合股东红利</b>：每个等级对应独立奖励池；首位达标的联合股东独享该池累积奖励，此后同级达标者共同均分</li>
-        <li><b>直推排行榜</b>：日榜前 10 名分 5%、周榜前 10 名分 3%</li>
+        <li><b>等级奖励</b>（合计 18%）：6 个级别 · <b>同级不拿</b>，等级越高、奖励比例越高，逐级加权，累计最高 18%</li>
+        <li><b>达标在榜分红</b>（合计 12%）：M1–M6 分别设池（1% / 2% / 3% / 3% / 2% / 1%）；<b>第一个达到的拿累积全部</b>，之后由达标在榜者平分</li>
       </ul>
+
+      <!-- 直推打榜分红 8% -->
+      <div class="sec-head" style="margin-top:44px;margin-bottom:16px;">
+        <div class="sec-tag">RANKING BONUS · 8%</div>
+        <div class="sec-title">直推 <span class="g">打榜分红</span></div>
+        <div class="sec-desc">直推业绩打榜 · 日榜前 10 名分 5% · 周榜前 10 名分 3%</div>
+      </div>
+      <div class="grid g2">
+        <div class="card">
+          <div class="ct">日榜 · 前 10 名分 5%</div>
+          <ul class="rules">
+            <li>第 1 名 <b>2%</b> · 第 2 名 <b>1.2%</b> · 第 3 名 <b>0.8%</b></li>
+            <li>第 4 名 <b>0.4%</b> · 第 5 名 <b>0.2%</b></li>
+            <li>第 6–8 名 各 <b>0.1%</b> · 第 9–10 名 各 <b>0.05%</b></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct">周榜 · 前 10 名分 3%</div>
+          <ul class="rules">
+            <li>第 1 名 <b>1.2%</b> · 第 2 名 <b>0.6%</b> · 第 3 名 <b>0.3%</b></li>
+            <li>第 4 名 <b>0.24%</b> · 第 5 名 <b>0.18%</b></li>
+            <li>第 6–8 名 各 <b>0.12%</b> · 第 9–10 名 各 <b>0.06%</b></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sh-statement" style="margin-top:22px;">以上<b>业绩均为累计业绩</b> · 直推奖励须账号<b>保持 10 枚在投</b>方可领取。</div>
     </section>
 
     <!-- 创世卡牌权益 -->
     <section class="block" id="cards">
       <div class="sec-head">
-        <div class="sec-tag">GENESIS CARDS</div>
+        <div class="sec-tag">GENESIS CARDS · 仅 120 张</div>
         <div class="sec-title">创世 <span class="g">卡牌权益</span></div>
-        <div class="sec-desc">持有创世卡牌，享全生态三重分红 · 卡牌只能通过市场获取</div>
+        <div class="sec-desc">全网卖税与撤池分红的最大受益者 · 一次持有 · 终身收租</div>
       </div>
-      <div class="grid g3" style="margin-bottom:16px;">
-        <div class="card"><div class="ct">进场分红 · 3% MDC</div><div class="cd">每笔进场入金，卡牌持有者按比例分得 <b>3% 的 MDC</b>。</div></div>
-        <div class="card"><div class="ct">卖币滑点 · 5% MMC</div><div class="cd">每笔卖出 MMC 收取 <b>5% 滑点</b>，分配给卡牌持有者。</div></div>
-        <div class="card"><div class="ct">撤池分红 · 10% MMC</div><div class="cd">全网每笔撤出 LP，卡牌持有者分得 <b>10% 的 MMC</b>。</div></div>
+      <div class="grid g2" style="margin-bottom:16px;">
+        <div class="card"><div class="ct">卖税分红 · 终身权益</div><div class="cd">独享全网每一笔卖出税：<b>买盘开放前分 20%</b>，买盘开放后分 <b>2%</b>。$1000 前只能卖，卖压越大、卡牌分得越多——<b>持卡即被动收租</b>。</div></div>
+        <div class="card"><div class="ct">全网撤池分红 · 10% MMC</div><div class="cd">任何人撤出 MMC-LP，创世卡牌持有者共同瓜分其中 <b>10% 的 MMC</b>。越多人撤池、卡牌越赚，稳收全生态红利。</div></div>
       </div>
-      <div class="sh-statement" style="margin-top:6px;">创世卡牌<b>不可铸造、不可申购</b>，<b>只能通过市场获取</b>，数量恒定、稀缺即价值。</div>
+      <div class="sh-statement" style="margin-top:6px;margin-bottom:24px;">创世卡牌总量恒定 <b>120 张 · 每地址限 1 张 · 分完即止</b>，稀缺不可复制，越早入局越早锁定终身分红。</div>
+
+      <div class="sec-head" style="margin-bottom:16px;">
+        <div class="sec-tag">120 张 · 获取通道</div>
+        <div class="sec-title" style="font-size:clamp(18px,3vw,24px);">如何 <span class="g">获得创世卡牌</span></div>
+      </div>
+      <div class="grid g2" style="margin-bottom:16px;">
+        <div class="card">
+          <div class="ct">首批 60 张 · 初创股东</div>
+          <div class="cd"><b>500 美金 / 张</b> 面向初创股东招募，<b>每地址限购 1 张</b>。越早入局越早锁定全生态终身卖税分红权。</div>
+        </div>
+        <div class="card">
+          <div class="ct">剩余 60 张 · 销毁 / 购买</div>
+          <div class="cd">分 <b>5 个批次</b>释放，可在官网<b>销毁 MMC</b> 或用 <b>MDC 购买</b>获得，门槛逐批递增，先到先得。</div>
+        </div>
+      </div>
+      <div class="mtable-wrap">
+        <table class="mtable">
+          <thead>
+            <tr><th>批次</th><th>数量</th><th>销毁 MMC 价值</th><th>或 MDC 购买价值</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="lv">第一批</td><td><b>12</b> 张</td><td class="rate">$1,000</td><td>$2,000</td></tr>
+            <tr><td class="lv">第二批</td><td><b>12</b> 张</td><td class="rate">$2,000</td><td>$4,000</td></tr>
+            <tr><td class="lv">第三批</td><td><b>12</b> 张</td><td class="rate">$4,000</td><td>$6,000</td></tr>
+            <tr><td class="lv">第四批</td><td><b>12</b> 张</td><td class="rate">$6,000</td><td>$8,000</td></tr>
+            <tr><td class="lv">第五批</td><td><b>12</b> 张</td><td class="rate">$8,000</td><td>$10,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sh-action" style="margin-top:22px;">
+        <a class="cta cta-gold" href="#genesis" style="min-width:280px;justify-content:center;">立即认购创世卡牌 · 500 USDT</a>
+      </div>
     </section>
 
-    <!-- 矿机系统 -->
-    <section class="block">
+    <!-- 业绩卡牌 -->
+    <section class="block" id="perfcards">
       <div class="sec-head">
-        <div class="sec-tag">MINER SYSTEM</div>
-        <div class="sec-title">矿机 <span class="g">MMC-122TH/s</span></div>
-        <div class="sec-desc">持有矿机凭证的地址，将自动在矿池挖矿产出 MMC。矿机即将在官网开售。</div>
+        <div class="sec-tag">PERFORMANCE CARDS · 共 360 张</div>
+        <div class="sec-title">业绩 <span class="g">公约卡牌</span></div>
+        <div class="sec-desc">凭直推累计业绩领取 · 共 360 张 · 分完即止 · 每地址最多 1 张 · 不可累加</div>
       </div>
-      <div class="grid g3">
-        <div class="card"><div class="ct">条件一 · 销毁</div><div class="cd">官网销毁价值 <b>500U 的 MMC</b>，即领 MMC-122TH/s 矿机凭证至钱包。</div></div>
-        <div class="card"><div class="ct">条件二 · 捐赠</div><div class="cd">捐赠 <b>1000 USDT</b> 直接领取矿机凭证，捐赠款<b>全部加进底池</b>。</div></div>
-        <div class="card"><div class="ct">条件三 · 业绩</div><div class="cd">直推业绩达 <b>5000 MDC</b>，官网<b>免费奖励</b>一台矿机凭证。</div></div>
+      <div class="grid g2" style="margin-bottom:16px;">
+        <div class="card"><div class="ct">进场分红 · 3% MDC</div><div class="cd">每笔进场入金，业绩公约卡牌持有者按比例分得 <b>3% 的 MDC</b>（以 MDC 结算）。</div></div>
+        <div class="card"><div class="ct">卖 MMC 滑点 · 2%</div><div class="cd">每笔卖出 MMC 收取 <b>2% 滑点</b>，分配给业绩公约卡牌持有者（以 MDC 结算）。</div></div>
       </div>
-      <div class="sh-statement" style="margin-top:18px;">初代矿机即将开售 · 全网算力极小，<b>初代矿机独享最厚创世产出与最高收益周期</b>，越早持有，单位算力挖矿越多、回本越快。</div>
+      <div class="mtable-wrap">
+        <table class="mtable">
+          <thead>
+            <tr><th>批次</th><th>数量</th><th>领取条件（直推累计业绩）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="lv">第一批</td><td><b>120</b> 张</td><td>直推业绩累计达 <b>1,000</b> MDC</td></tr>
+            <tr><td class="lv">第二批</td><td><b>90</b> 张</td><td>直推业绩累计达 <b>2,000</b> MDC</td></tr>
+            <tr><td class="lv">第三批</td><td><b>60</b> 张</td><td>直推业绩累计达 <b>3,000</b> MDC</td></tr>
+            <tr><td class="lv">第四批</td><td><b>30</b> 张</td><td>直推业绩累计达 <b>4,000</b> MDC</td></tr>
+            <tr><td class="lv">第五批</td><td><b>30</b> 张</td><td>直推业绩累计达 <b>5,000</b> MDC</td></tr>
+            <tr><td class="lv">第六批</td><td><b>30</b> 张</td><td>直推业绩累计达 <b>6,000</b> MDC</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="sh-statement" style="margin-top:18px;">共 <b>360 张 · 分完即止</b>，每个地址最多获得 <b>1 张 · 不能累加</b>，直推业绩为<b>累计业绩</b>。</div>
     </section>
 
     <!-- 参与方式 -->
@@ -585,9 +690,9 @@
         <div class="sec-tag">HOW TO JOIN</div>
         <div class="sec-title">参与 <span class="g">方式</span></div>
       </div>
-      <div class="step"><span class="num">1</span><div><div class="st">捐赠组 LP</div><div class="sd">在官网<b style="color:var(--gold)">捐赠 MDC</b> 组合成 <b>MMC-LP</b>，获得 MMC-LP，<b>马上到账钱包</b>，一笔交易直接到账。</div></div></div>
-      <div class="step"><span class="num">2</span><div><div class="st">推荐绑定</div><div class="sd">通过<b style="color:var(--gold)">推荐链接</b>绑定推荐关系；须在官网<b>捐赠 MDC 获得 LP 后</b>方可完成有效绑定。</div></div></div>
-      <div class="step"><span class="num">3</span><div><div class="st">卖出提现</div><div class="sd">把 <b style="color:var(--gold)">MMC 或者 MMC-LP</b> 转进 MMC 的合约地址，<b>MDC 立即到账钱包</b>。</div></div></div>
+      <div class="step"><span class="num">1</span><div><div class="st">官网入金 · 封装 MMC-LP</div><div class="sd">在官网<b style="color:var(--gold)">入金</b>，直接<b>封装获得 MMC-LP</b>，归属用户本人，可随时撤池。</div></div></div>
+      <div class="step"><span class="num">2</span><div><div class="st">推荐绑定《10 枚 MDC 在投》</div><div class="sd">通过<b style="color:var(--gold)">推荐链接</b>绑定推荐关系，账号需<b>保持 10 枚 MDC 在投</b>；<b>入金后才能绑定</b>，没有入金绑定的将成为默认地址的下级。</div></div></div>
+      <div class="step"><span class="num">3</span><div><div class="st">卖出 / 撤池到账</div><div class="sd">把 <b style="color:var(--gold)">MMC 或 MMC-LP</b> 转进 MMC 合约地址，<b>MDC 立即到账钱包</b>；撤 LP 时 MDC 全部到账、MMC 70% 销毁 / 20% 到账 / 10% 归创世卡牌。</div></div></div>
     </section>
 
     <!-- 社区 -->
@@ -596,7 +701,8 @@
         <div class="logo-badge" style="margin-bottom:18px;"><svg class="logo-ico"><use href="#mmcLogo"></use></svg></div>
         <div class="vis">遇见造化 · 我命由我</div>
         <div class="hero-cta" style="margin-top:24px;">
-          <a class="cta cta-gold" href="#shareholder">申请初代矿主</a>
+          <a class="cta cta-gold" href="#genesis">认购创世卡牌</a>
+          <a class="cta cta-ghost" href="cards-posters.html">卡牌海报</a>
           <a class="cta cta-ghost" href="docs/mmc-ppt.html">课件</a>
           <a class="cta cta-ghost" href="docs/mmc-whitepaper.html">阅读白皮书</a>
         </div>
@@ -722,19 +828,19 @@
 
     function refreshShareStatus() {
       const btn = document.getElementById('shareBtn');
-      if (account && localStorage.getItem('mmc_shareholder_' + account.toLowerCase())) {
+      if (account && localStorage.getItem('mmc_genesis_card_' + account.toLowerCase())) {
         btn.disabled = true;
-        btn.textContent = '您已是 MMC 初代矿主';
+        btn.textContent = '您已持有 MMC 创世卡牌';
       } else {
         btn.disabled = false;
-        btn.textContent = '立即申请初代矿主 · 挖 MMC 创世区块';
+        btn.textContent = '立即认购创世卡牌 · 500 USDT';
       }
     }
 
     async function becomeShareholder() {
       if (!signer) { await connectWallet(); if (!signer) return; }
-      const key = 'mmc_shareholder_' + account.toLowerCase();
-      if (localStorage.getItem(key)) { modal('您已是初代矿主', '每个地址限申请一份，该地址已完成申请。'); return; }
+      const key = 'mmc_genesis_card_' + account.toLowerCase();
+      if (localStorage.getItem(key)) { modal('您已持有创世卡牌', '每个地址限购一张，该地址已完成认购。'); return; }
       const btn = document.getElementById('shareBtn');
       try {
         await ensureBSC();
@@ -742,14 +848,14 @@
         const dec = await usdt.decimals();
         const amount = ethers.utils.parseUnits(SHARE_PRICE, dec);
         const bal = await usdt.balanceOf(account);
-        if (bal.lt(amount)) { modal('USDT 余额不足', '申请初代矿主需向以下 <b>MDC共建社区地址</b>转入 <b>500 USDT（BSC）</b>：<br><br><span style="font-family:monospace;font-size:13px;color:var(--teal);word-break:break-all;">' + RECEIVER + '</span> <button class="copy-mini" onclick="copyText(\'' + RECEIVER + '\', this)">复制</button><br><br>请确认余额充足后再试，或手动向该地址转账 500 USDT 完成捐赠。'); return; }
+        if (bal.lt(amount)) { modal('USDT 余额不足', '认购创世卡牌需向以下 <b>MDC 共建社区国库地址</b>转入 <b>500 USDT（BSC）</b>：<br><br><span style="font-family:monospace;font-size:13px;color:var(--teal);word-break:break-all;">' + RECEIVER + '</span> <button class="copy-mini" onclick="copyText(\'' + RECEIVER + '\', this)">复制</button><br><br>请确认余额充足后再试，或手动向该地址转账 500 USDT 完成认购。'); return; }
         btn.disabled = true; btn.textContent = '等待钱包确认...';
         const tx = await usdt.transfer(RECEIVER, amount);
         btn.textContent = '交易确认中...';
         modal('交易已提交', '正在等待区块确认，请稍候...<br><br>TX: ' + short(tx.hash));
         await tx.wait();
         localStorage.setItem(key, tx.hash);
-        modal('恭喜成为 MMC 初代矿主！', '500 USDT 捐赠成功，您已是 MMC 创世矿工。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
+        modal('恭喜成为 MMC 创世股东！', '500 USDT 认购成功，您已持有 MMC 创世卡牌，独享全网卖税分红与撤池分红终身权益。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
         refreshShareStatus();
       } catch (e) {
         const msg = (e && e.data && e.data.message) || (e && e.message) || '交易被取消或失败。';

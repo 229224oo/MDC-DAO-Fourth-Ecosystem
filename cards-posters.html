@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMC 创世卡牌 · 推广海报</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.cn">
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+<link href="https://fonts.googleapis.cn/css2?family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --paper:#f6efe1;         /* 高级米白 */
+    --paper-2:#fbf6ec;
+    --paper-deep:#efe6d4;
+    --ink:#2c2620;           /* 暖墨 */
+    --ink-soft:#6f6653;
+    --muted:#948a74;
+    --gold:#b28a45;          /* 沉稳金 */
+    --gold-2:#caa25b;
+    --gold-deep:#8f6d33;
+    --line:rgba(160,128,66,0.28);
+    --line-soft:rgba(160,128,66,0.16);
+  }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    font-family:'Noto Serif SC','Songti SC','SimSun',serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 20% 0%, #efe7d6 0%, transparent 45%),
+      radial-gradient(circle at 85% 12%, #f0e8d7 0%, transparent 48%),
+      #e7ddca;
+    min-height:100vh;
+    padding:0 0 70px;
+  }
+
+  /* 顶栏 */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    padding:16px 22px;
+    background:linear-gradient(180deg, rgba(246,239,225,0.96), rgba(246,239,225,0.82));
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .tb-brand{ display:flex; align-items:center; gap:11px; }
+  .tb-seal{
+    width:40px; height:40px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900; font-size:13px; letter-spacing:.5px; color:var(--gold-deep);
+    background:radial-gradient(circle at 35% 30%, #fff7e6, #f0e2c2);
+    border:1.5px solid var(--gold); box-shadow:0 3px 10px rgba(160,128,66,.25);
+  }
+  .tb-tit{ font-weight:900; font-size:16px; letter-spacing:1px; }
+  .tb-tit small{ display:block; font-size:11px; letter-spacing:3px; color:var(--muted); font-weight:500; }
+  .tb-actions{ display:flex; gap:9px; flex-wrap:wrap; }
+  .tb-btn{
+    font-family:inherit; cursor:pointer; text-decoration:none;
+    font-size:13px; font-weight:700; padding:9px 15px; border-radius:10px;
+    color:var(--gold-deep); border:1px solid var(--gold);
+    background:linear-gradient(135deg,#fdf8ee,#f3e8cf); transition:.2s; white-space:nowrap;
+  }
+  .tb-btn:hover{ transform:translateY(-1px); box-shadow:0 6px 16px rgba(160,128,66,.28); }
+  .tb-btn.solid{ color:#fff; border-color:transparent; background:linear-gradient(135deg,var(--gold-2),var(--gold-deep)); }
+
+  .intro{ text-align:center; padding:34px 20px 6px; }
+  .intro h1{ font-size:clamp(22px,4.6vw,34px); font-weight:900; letter-spacing:2px; }
+  .intro .g{ color:var(--gold-deep); }
+  .intro p{ color:var(--ink-soft); margin-top:10px; font-size:14px; letter-spacing:1px; }
+
+  /* 海报容器 */
+  .stage{ max-width:1100px; margin:0 auto; padding:26px 18px 0;
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(430px,1fr)); gap:34px; justify-items:center; }
+  @media(max-width:520px){ .stage{ grid-template-columns:1fr; padding:22px 12px 0; } }
+
+  .poster{ width:100%; max-width:460px; }
+  .frame{
+    position:relative; width:100%; padding:38px 34px 30px; border-radius:20px; overflow:hidden;
+    background:
+      radial-gradient(circle at 82% 6%, rgba(202,162,91,0.10) 0%, transparent 42%),
+      radial-gradient(circle at 6% 96%, rgba(202,162,91,0.08) 0%, transparent 42%),
+      linear-gradient(160deg, var(--paper-2) 0%, var(--paper) 55%, var(--paper-deep) 100%);
+    border:1px solid var(--line);
+    box-shadow:0 22px 54px rgba(72,56,24,0.20);
+  }
+  /* 内描金细边框 */
+  .frame::before{
+    content:''; position:absolute; inset:12px; border:1px solid var(--line-soft);
+    border-radius:13px; pointer-events:none;
+  }
+  /* 四角描金 */
+  .corner{ position:absolute; width:26px; height:26px; border:2px solid var(--gold); opacity:.6; }
+  .corner.tl{ top:20px; left:20px; border-right:none; border-bottom:none; border-radius:6px 0 0 0; }
+  .corner.tr{ top:20px; right:20px; border-left:none; border-bottom:none; border-radius:0 6px 0 0; }
+  .corner.bl{ bottom:20px; left:20px; border-right:none; border-top:none; border-radius:0 0 0 6px; }
+  .corner.br{ bottom:20px; right:20px; border-left:none; border-top:none; border-radius:0 0 6px 0; }
+
+  .p-brand{ display:flex; align-items:center; gap:11px; margin-bottom:20px; position:relative; z-index:2; }
+  .seal{
+    width:50px; height:50px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:900; font-size:15px; letter-spacing:.5px; color:var(--gold-deep);
+    background:radial-gradient(circle at 35% 30%, #fff8e8, #eedcb6);
+    border:2px solid var(--gold); box-shadow:0 4px 12px rgba(160,128,66,.3);
+  }
+  .p-bn{ font-weight:900; font-size:17px; letter-spacing:1px; }
+  .p-bs{ font-size:10.5px; letter-spacing:4px; color:var(--muted); font-weight:600; margin-top:2px; }
+
+  .eyebrow{
+    display:inline-block; font-size:11px; letter-spacing:4px; color:var(--gold-deep); font-weight:700;
+    padding:5px 14px; border:1px solid var(--line); border-radius:20px; background:rgba(255,255,255,0.4);
+    position:relative; z-index:2;
+  }
+  .p-title{ font-size:clamp(24px,5.4vw,30px); font-weight:900; letter-spacing:1px; line-height:1.25; margin:16px 0 6px; position:relative; z-index:2; }
+  .p-sub{ font-size:14px; color:var(--ink-soft); letter-spacing:.5px; position:relative; z-index:2; }
+
+  .gilt{
+    background:linear-gradient(120deg,var(--gold-2),var(--gold-deep));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:var(--gold-deep);
+  }
+  .capturing .gilt{ -webkit-text-fill-color:var(--gold-deep); background:none; }
+
+  .hero-num{ font-size:78px; font-weight:900; line-height:1; letter-spacing:1px; margin:8px 0 2px; position:relative; z-index:2; }
+  .hero-num small{ font-size:24px; font-weight:900; }
+  .price-line{ font-size:16px; font-weight:700; color:var(--ink); letter-spacing:.5px; position:relative; z-index:2; }
+  .price-line b{ color:var(--gold-deep); }
+
+  .divider{ height:1px; background:linear-gradient(90deg,transparent,var(--line),transparent); margin:20px 0; position:relative; z-index:2; }
+
+  .rows{ position:relative; z-index:2; }
+  .frow{ display:flex; align-items:flex-start; gap:12px; padding:11px 0; border-bottom:1px dashed var(--line-soft); }
+  .frow:last-child{ border-bottom:none; }
+  .fdot{ flex:0 0 auto; width:9px; height:9px; margin-top:8px; border-radius:50%; background:linear-gradient(135deg,var(--gold-2),var(--gold-deep)); box-shadow:0 0 0 3px rgba(178,138,69,.14); }
+  .ft{ font-size:15px; font-weight:800; color:var(--ink); }
+  .fd{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; line-height:1.6; }
+
+  /* 编号权益块 */
+  .benefit{ position:relative; z-index:2; display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line-soft); }
+  .benefit:last-child{ border-bottom:none; }
+  .bno{ font-size:26px; font-weight:900; color:var(--line); min-width:44px; line-height:1; }
+  .bpct{ font-size:26px; font-weight:900; line-height:1.05; }
+  .bt2{ font-size:16px; font-weight:900; color:var(--ink); }
+  .bd2{ font-size:12.5px; color:var(--ink-soft); margin-top:3px; line-height:1.6; }
+
+  /* 三数据 */
+  .stat3{ position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:8px 0 4px; }
+  .stat3 .s{ text-align:center; padding:14px 6px; border-radius:12px; background:rgba(255,255,255,0.42); border:1px solid var(--line-soft); }
+  .stat3 .sv{ font-size:20px; font-weight:900; }
+  .stat3 .sl{ font-size:11px; color:var(--muted); margin-top:4px; letter-spacing:.5px; }
+
+  /* 表格 */
+  .ptable{ position:relative; z-index:2; width:100%; border-collapse:collapse; margin-top:6px; background:rgba(255,255,255,0.4); border-radius:12px; overflow:hidden; }
+  .ptable th, .ptable td{ padding:10px 8px; text-align:center; font-size:12.5px; border-bottom:1px solid var(--line-soft); }
+  .ptable th{ background:rgba(178,138,69,0.14); color:var(--gold-deep); font-weight:800; letter-spacing:.5px; font-size:12px; }
+  .ptable tbody tr:last-child td{ border-bottom:none; }
+  .ptable .bt3{ font-weight:900; color:var(--ink); }
+  .ptable .gd{ color:var(--gold-deep); font-weight:800; }
+
+  /* 分配条 */
+  .bars{ position:relative; z-index:2; margin-top:6px; }
+  .bar{ margin:12px 0; }
+  .bar-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:5px; }
+  .bar-nm{ font-size:14px; font-weight:800; color:var(--ink); }
+  .bar-pc{ font-size:15px; font-weight:900; color:var(--gold-deep); }
+  .bar-track{ height:8px; border-radius:6px; background:rgba(160,128,66,0.14); overflow:hidden; }
+  .bar-fill{ height:100%; border-radius:6px; background:linear-gradient(90deg,var(--gold-2),var(--gold-deep)); }
+
+  .cta-pill{
+    position:relative; z-index:2; margin-top:22px; text-align:center;
+    font-size:15px; font-weight:900; letter-spacing:1px; color:#fff;
+    padding:14px; border-radius:13px;
+    background:linear-gradient(135deg,var(--gold-2),var(--gold-deep));
+    box-shadow:0 10px 24px rgba(143,109,51,0.32);
+  }
+  .p-note{ position:relative; z-index:2; margin-top:14px; font-size:12px; color:var(--muted); line-height:1.6; }
+  .p-foot{ position:relative; z-index:2; margin-top:20px; padding-top:14px; border-top:1px solid var(--line-soft);
+    display:flex; justify-content:space-between; align-items:center; font-size:11px; color:var(--muted); letter-spacing:.5px; }
+  .p-foot .fslogan{ color:var(--gold-deep); font-weight:700; }
+
+  .dl{
+    display:block; width:100%; margin-top:14px; cursor:pointer; font-family:inherit;
+    font-size:13.5px; font-weight:800; letter-spacing:.5px; color:var(--gold-deep);
+    padding:11px; border-radius:11px; border:1px solid var(--gold);
+    background:linear-gradient(135deg,#fdf8ee,#f2e7ce); transition:.2s;
+  }
+  .dl:hover{ transform:translateY(-1px); box-shadow:0 8px 20px rgba(160,128,66,.26); }
+
+  .foot-glob{ text-align:center; color:var(--muted); font-size:12px; margin-top:44px; padding:0 20px; letter-spacing:1px; }
+
+  @media print{
+    .topbar,.dl,.foot-glob,.intro p{ display:none !important; }
+    body{ background:#fff; }
+    .stage{ display:block; }
+    .poster{ max-width:none; page-break-after:always; margin:0 auto 12mm; }
+    .frame{ box-shadow:none; }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="tb-brand">
+      <div class="tb-seal">MMC</div>
+      <div class="tb-tit">创世卡牌 · 推广海报<small>GENESIS CARD POSTERS</small></div>
+    </div>
+    <div class="tb-actions">
+      <a class="tb-btn" href="index.html">返回首页</a>
+      <button class="tb-btn" onclick="window.print()">打印 / 存 PDF</button>
+      <button class="tb-btn solid" id="dlAll" onclick="downloadAll()">下载全部海报</button>
+    </div>
+  </div>
+
+  <div class="intro">
+    <h1>MMC <span class="g">创世卡牌</span> · 推广海报</h1>
+    <p>高级米白 · 简洁大气 · 可单张下载或一键打印 PDF</p>
+  </div>
+
+  <div class="stage">
+
+    <!-- 海报 1：主推广 -->
+    <div class="poster">
+      <div class="frame" id="p1">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="p-brand"><div class="seal">MMC</div><div><div class="p-bn">MMC 创世卡牌</div><div class="p-bs">GENESIS CARD</div></div></div>
+        <span class="eyebrow">全网限量 · 创世身份</span>
+        <div class="hero-num gilt">全网仅 120 <small>张</small></div>
+        <div class="price-line"><b>500 美金 / 张</b> · 每地址限购 <b>1</b> 张 · 分完即止</div>
+        <div class="divider"></div>
+        <div class="rows">
+          <div class="frow"><span class="fdot"></span><div><div class="ft">卖税分红 · 终身权益</div><div class="fd">独享全网卖出税，买盘开放前分 20%、开放后分 2%，持卡即被动收租。</div></div></div>
+          <div class="frow"><span class="fdot"></span><div><div class="ft">全网撤池分红 · 10% MMC</div><div class="fd">任何人撤出 MMC-LP，创世卡牌持有者共享其中 10% 的 MMC。</div></div></div>
+          <div class="frow"><span class="fdot"></span><div><div class="ft">恒定稀缺 · 不可复制</div><div class="fd">总量恒定 120 张，越早入局越早锁定全生态终身分红权。</div></div></div>
+        </div>
+        <div class="cta-pill">官网认购 · 立即锁定创世身份</div>
+        <div class="p-foot"><span>MDC 生态原生代币</span><span class="fslogan">遇见造化 · 我命由我</span></div>
+      </div>
+      <button class="dl" onclick="downloadPoster('p1','MMC创世卡牌-主海报')">↓ 下载本海报</button>
+    </div>
+
+    <!-- 海报 2：三大权益 -->
+    <div class="poster">
+      <div class="frame" id="p2">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="p-brand"><div class="seal">MMC</div><div><div class="p-bn">创世卡牌 · 权益</div><div class="p-bs">CARD BENEFITS</div></div></div>
+        <span class="eyebrow">持卡即收租</span>
+        <div class="p-title">三重<span class="gilt">终身红利</span></div>
+        <div class="p-sub">一次持有，坐享全网卖税与撤池分红</div>
+        <div class="divider"></div>
+        <div class="benefit">
+          <div class="bno">01</div>
+          <div><div class="bpct gilt">20% / 2%</div><div class="bt2">卖税分红</div><div class="bd2">全网每一笔卖出税：买盘开放前分 20%，开放后分 2%。$1000 前只能卖，卖压越大、卡牌分得越多。</div></div>
+        </div>
+        <div class="benefit">
+          <div class="bno">02</div>
+          <div><div class="bpct gilt">10% MMC</div><div class="bt2">全网撤池分红</div><div class="bd2">任何人撤出 MMC-LP，创世卡牌持有者共同瓜分其中 10% 的 MMC，越多人撤池、卡牌越赚。</div></div>
+        </div>
+        <div class="benefit">
+          <div class="bno">03</div>
+          <div><div class="bpct gilt">仅 120 张</div><div class="bt2">恒定稀缺</div><div class="bd2">总量恒定、每地址限 1 张、分完即止，创世身份不可复制，稀缺即价值。</div></div>
+        </div>
+        <div class="p-foot"><span>MMC 创世卡牌</span><span class="fslogan">遇见造化 · 我命由我</span></div>
+      </div>
+      <button class="dl" onclick="downloadPoster('p2','MMC创世卡牌-三大权益')">↓ 下载本海报</button>
+    </div>
+
+    <!-- 海报 3：获取通道 -->
+    <div class="poster">
+      <div class="frame" id="p3">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="p-brand"><div class="seal">MMC</div><div><div class="p-bn">如何获得创世卡牌</div><div class="p-bs">HOW TO GET</div></div></div>
+        <span class="eyebrow">120 张 · 获取通道</span>
+        <div class="p-title">两条路 · <span class="gilt">得创世卡牌</span></div>
+        <div class="divider"></div>
+        <div class="benefit">
+          <div class="bno">A</div>
+          <div><div class="bpct gilt">首批 60 张</div><div class="bt2">500 美金 · 初创股东</div><div class="bd2">面向初创股东招募，每地址限购 1 张，越早入局越早锁定终身卖税分红权。</div></div>
+        </div>
+        <div class="p-sub" style="margin:14px 0 8px;font-weight:700;color:var(--ink);">B · 剩余 60 张 · 5 批次（销毁 MMC 或 MDC 购买）</div>
+        <table class="ptable">
+          <thead><tr><th>批次</th><th>数量</th><th>销毁 MMC</th><th>或 MDC 购买</th></tr></thead>
+          <tbody>
+            <tr><td class="bt3">一批</td><td>12 张</td><td class="gd">$1,000</td><td>$2,000</td></tr>
+            <tr><td class="bt3">二批</td><td>12 张</td><td class="gd">$2,000</td><td>$4,000</td></tr>
+            <tr><td class="bt3">三批</td><td>12 张</td><td class="gd">$4,000</td><td>$6,000</td></tr>
+            <tr><td class="bt3">四批</td><td>12 张</td><td class="gd">$6,000</td><td>$8,000</td></tr>
+            <tr><td class="bt3">五批</td><td>12 张</td><td class="gd">$8,000</td><td>$10,000</td></tr>
+          </tbody>
+        </table>
+        <div class="p-note">门槛逐批递增 · 先到先得 · 分完即止</div>
+        <div class="p-foot"><span>MMC 创世卡牌</span><span class="fslogan">遇见造化 · 我命由我</span></div>
+      </div>
+      <button class="dl" onclick="downloadPoster('p3','MMC创世卡牌-获取通道')">↓ 下载本海报</button>
+    </div>
+
+    <!-- 海报 4：核心机制 -->
+    <div class="poster">
+      <div class="frame" id="p4">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="p-brand"><div class="seal">MMC</div><div><div class="p-bn">MMC 核心机制</div><div class="p-bs">CORE MECHANISM</div></div></div>
+        <span class="eyebrow">通缩为核 · 稀缺即价值</span>
+        <div class="p-title">MMC <span class="gilt">通缩机制</span></div>
+        <div class="p-sub">$1000 前只能卖不能买，达 $1000 自动开放买盘</div>
+        <div class="divider"></div>
+        <div class="stat3">
+          <div class="s"><div class="sv gilt">100 万</div><div class="sl">发行总量</div></div>
+          <div class="s"><div class="sv gilt">每日 2%</div><div class="sl">LP 底池通缩</div></div>
+          <div class="s"><div class="sv gilt">$1000</div><div class="sl">开放买盘</div></div>
+        </div>
+        <div class="p-sub" style="margin:16px 0 6px;font-weight:700;color:var(--ink);">每日 2% 通缩分配</div>
+        <div class="rows">
+          <div class="frow"><span class="fdot"></span><div><div class="ft">0.2% 黑洞销毁</div><div class="fd">永久销毁，流通量不可逆缩减。</div></div></div>
+          <div class="frow"><span class="fdot"></span><div><div class="ft">0.6% MDC-LP 质押分红</div><div class="fd">质押 MDC-LP 按算力权重分红（4/7/9/12 月 = 0.5/1/1.5/2 倍算力）。</div></div></div>
+          <div class="frow"><span class="fdot"></span><div><div class="ft">1.2% MMC 流动性挖矿</div><div class="fd">组 MMC 流动性，按区块实时分红。</div></div></div>
+        </div>
+        <div class="p-sub" style="margin:14px 0 6px;font-weight:700;color:var(--ink);">买卖税率</div>
+        <div class="rows">
+          <div class="frow"><span class="fdot"></span><div><div class="ft">开放前（&lt; $1000）</div><div class="fd">卖税 24%：创世卡牌 20% + 业绩卡牌 2% + 回流底池归黑洞 2%。</div></div></div>
+          <div class="frow"><span class="fdot"></span><div><div class="ft">开放后（≥ $1000）</div><div class="fd">买税 0，卖税降为 6%：创世卡牌 2% + 业绩卡牌 2% + 回流底池 2%。</div></div></div>
+        </div>
+        <div class="p-foot"><span>MDC 生态原生代币</span><span class="fslogan">遇见造化 · 我命由我</span></div>
+      </div>
+      <button class="dl" onclick="downloadPoster('p4','MMC核心机制')">↓ 下载本海报</button>
+    </div>
+
+    <!-- 海报 5：资金分配 -->
+    <div class="poster">
+      <div class="frame" id="p5">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="p-brand"><div class="seal">MMC</div><div><div class="p-bn">资金分配模型</div><div class="p-bs">FUND ALLOCATION</div></div></div>
+        <span class="eyebrow">链上自动 · 公开透明</span>
+        <div class="p-title">50% 用户 · <span class="gilt">50% 团队</span></div>
+        <div class="p-sub">用户 50% 全部封装成 MMC-LP，归属本人，可随时撤池</div>
+        <div class="divider"></div>
+        <div class="bars">
+          <div class="bar"><div class="bar-top"><span class="bar-nm">组 LP · 归属用户</span><span class="bar-pc">50%</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+          <div class="bar"><div class="bar-top"><span class="bar-nm">等级奖励（M1–M6 · 同级不拿）</span><span class="bar-pc">18%</span></div><div class="bar-track"><div class="bar-fill" style="width:36%"></div></div></div>
+          <div class="bar"><div class="bar-top"><span class="bar-nm">达标在榜分红</span><span class="bar-pc">12%</span></div><div class="bar-track"><div class="bar-fill" style="width:24%"></div></div></div>
+          <div class="bar"><div class="bar-top"><span class="bar-nm">直推奖励（保持 10 枚在投）</span><span class="bar-pc">9%</span></div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div></div>
+          <div class="bar"><div class="bar-top"><span class="bar-nm">直推打榜（日榜 5% + 周榜 3%）</span><span class="bar-pc">8%</span></div><div class="bar-track"><div class="bar-fill" style="width:16%"></div></div></div>
+          <div class="bar"><div class="bar-top"><span class="bar-nm">团队业绩卡牌分红</span><span class="bar-pc">3%</span></div><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div></div>
+        </div>
+        <div class="p-note">以上业绩均为累计业绩 · 团队 50% 按 A–E 项链上自动分配</div>
+        <div class="p-foot"><span>MMC 生态机制</span><span class="fslogan">遇见造化 · 我命由我</span></div>
+      </div>
+      <button class="dl" onclick="downloadPoster('p5','MMC资金分配')">↓ 下载本海报</button>
+    </div>
+
+  </div>
+
+  <div class="foot-glob">© 2026 MMC · MDC社区共建　|　官方最新生态共建 MDC 长久繁荣向上</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    function hasLib(){ return typeof window.html2canvas === 'function'; }
+
+    async function capture(el){
+      el.classList.add('capturing');
+      try{
+        const canvas = await html2canvas(el, {
+          scale: 2, useCORS: true, backgroundColor: '#f6efe1', logging: false
+        });
+        return canvas;
+      } finally {
+        el.classList.remove('capturing');
+      }
+    }
+
+    async function downloadPoster(id, name){
+      const el = document.getElementById(id);
+      if(!hasLib()){
+        alert('图片库未加载（可能因网络限制）。已为你调起「打印 / 存 PDF」，请在弹窗中选择「另存为 PDF」。');
+        window.print();
+        return;
+      }
+      const btn = el.parentElement.querySelector('.dl');
+      const old = btn ? btn.textContent : '';
+      if(btn){ btn.textContent = '生成中…'; btn.disabled = true; }
+      try{
+        const canvas = await capture(el);
+        const a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = name + '.png';
+        a.click();
+      }catch(e){
+        alert('生成失败：' + (e && e.message ? e.message : e));
+      }finally{
+        if(btn){ btn.textContent = old; btn.disabled = false; }
+      }
+    }
+
+    async function downloadAll(){
+      const ids = ['p1','p2','p3','p4','p5'];
+      const names = ['MMC创世卡牌-主海报','MMC创世卡牌-三大权益','MMC创世卡牌-获取通道','MMC核心机制','MMC资金分配'];
+      if(!hasLib()){
+        alert('图片库未加载（可能因网络限制）。已为你调起「打印 / 存 PDF」，可一次导出全部海报。');
+        window.print();
+        return;
+      }
+      const btn = document.getElementById('dlAll');
+      const old = btn.textContent; btn.disabled = true;
+      for(let i=0;i<ids.length;i++){
+        btn.textContent = '生成中 ' + (i+1) + '/' + ids.length;
+        try{
+          const canvas = await capture(document.getElementById(ids[i]));
+          const a = document.createElement('a');
+          a.href = canvas.toDataURL('image/png');
+          a.download = names[i] + '.png';
+          a.click();
+          await new Promise(r=>setTimeout(r,400));
+        }catch(e){ /* 跳过失败项 */ }
+      }
+      btn.textContent = old; btn.disabled = false;
+    }
+  </script>
+</body>
+</html>
