@@ -312,6 +312,12 @@
     }
     .btn-share:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 18px 48px rgba(245,196,81,0.6); }
     .btn-share:disabled { opacity: .55; cursor: not-allowed; filter: grayscale(20%); }
+    .btn-share-mdc {
+      color: var(--teal); background: rgba(45,212,191,0.10);
+      border: 1.5px solid rgba(45,212,191,0.55); box-shadow: 0 8px 24px rgba(45,212,191,0.18);
+      font-size: 16px;
+    }
+    .btn-share-mdc:hover:not(:disabled) { box-shadow: 0 14px 36px rgba(45,212,191,0.32); }
     .sh-note { font-size: 12.5px; color: var(--muted); text-align: center; }
     .addr-line {
       display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center;
@@ -676,7 +682,9 @@
 
         <div class="sh-action">
           <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">立即认购创世卡牌 · 500 USDT</button>
+          <button class="btn-share btn-share-mdc" id="shareBtnMdc" onclick="becomeShareholderMDC()" data-i18n="share_buy_mdc">或用 MDC 支付（价值 500 USDT）</button>
           <div class="sh-note" data-i18n="gen_note">点击按钮将通过你的 Web3 钱包自动向 MDC 共建社区国库 捐赠 <b>500 USDT（BSC）</b>认购创世卡牌。<b>每个地址限购 1 张</b>，请确认网络为 BNB Smart Chain。</div>
+          <div class="sh-note" data-i18n="gen_note_mdc">也可用 <b>价值 500 USDT 的 MDC</b> 认购，数量按<b>博饼（PancakeSwap）实时价格</b>自动折算。</div>
         </div>
       </div>
     </section>
@@ -935,6 +943,8 @@
       blockExplorerUrls: ['https://bscscan.com']
     };
     const USDT_ADDRESS = '0x55d398326f99059fF775485246999027B3197955'; // BSC USDT (BEP-20)
+    const MDC_ADDRESS = '0xd1ba69a44888ee50819c554d3d6f4ee457622894';  // MDC (BEP-20)
+    const ROUTER = '0x10ED43C718714eb63d5aA57B78B54704E256024E';        // PancakeSwap V2 Router
     const RECEIVER = '0x05c4af123f5589d37e54b63e57dc0a7fcadcf4c9';
     const SHARE_PRICE = '500';
     const USDT_ABI = [
@@ -942,6 +952,11 @@
       'function balanceOf(address owner) view returns (uint256)',
       'function decimals() view returns (uint8)'
     ];
+    const ROUTER_ABI = [
+      'function getAmountsOut(uint256 amountIn, address[] path) view returns (uint256[])',
+      'function getAmountsIn(uint256 amountOut, address[] path) view returns (uint256[])'
+    ];
+    let mdcQuoteRaw = null; // 500 USDT 折算的 MDC 数量（BigNumber，链上实时报价）
 
     let provider, signer, account;
 
@@ -951,6 +966,8 @@
       wallet_connect: '连接钱包',
       share_held: '您已持有 MMC 创世卡牌',
       share_buy: '立即认购创世卡牌 · 500 USDT',
+      share_buy_mdc: '或用 MDC 支付（价值 500 USDT）',
+      mdc_actual: '以实际到账为准',
       copied: '已复制',
       page_title: 'MDC最新生态'
     };
@@ -960,6 +977,8 @@
       wallet_connect: 'Connect Wallet',
       share_held: 'You already hold an MMC Genesis Card',
       share_buy: 'Subscribe Genesis Card · 500 USDT',
+      share_buy_mdc: 'Or Pay with MDC (worth 500 USDT)',
+      mdc_actual: 'actual settlement prevails',
       copied: 'Copied',
       page_title: 'MDC Latest Ecosystem',
       // 导航 / 抽屉
@@ -1023,6 +1042,7 @@
       gen_b4t: `Genesis Shareholder Status`,
       gen_b4d: `The first 60 cards at <b>$500</b> go to founding shareholders. The earlier you join, the sooner you lock in lifetime ecosystem dividends.`,
       gen_note: `Clicking will use your Web3 wallet to donate <b>500 USDT (BSC)</b> to the MDC Community Treasury to subscribe a Genesis Card. <b>1 per address.</b> Please make sure the network is BNB Smart Chain.`,
+      gen_note_mdc: `You may also subscribe with <b>MDC worth 500 USDT</b>; the amount is auto-converted at <b>PancakeSwap real-time price</b>.`,
       // 核心机制
       mech_title: `Core <span class="g">Deflation Mechanism</span>`,
       mech_desc: `Sell-only below $1000 (minted only via LP mining); buying auto-opens at $1000. The LP pool <b>deflates 2% daily</b> — scarcer with every burn.`,
@@ -1132,7 +1152,7 @@
       modal_ok: `Got it`
     };
 
-    var curLang = 'zh', curTheme = 'midnight';
+    var curLang = 'zh', curTheme = 'cream';
 
     function t(key) {
       if (curLang === 'en' && I18N_EN[key] != null) return I18N_EN[key];
@@ -1280,14 +1300,51 @@
     }
 
     function refreshShareStatus() {
+      const held = !!(account && localStorage.getItem('mmc_genesis_card_' + account.toLowerCase()));
       const btn = document.getElementById('shareBtn');
-      if (account && localStorage.getItem('mmc_genesis_card_' + account.toLowerCase())) {
-        btn.disabled = true;
-        btn.textContent = t('share_held');
-      } else {
-        btn.disabled = false;
-        btn.textContent = t('share_buy');
+      const btnM = document.getElementById('shareBtnMdc');
+      if (btn) {
+        btn.disabled = held;
+        btn.textContent = held ? t('share_held') : t('share_buy');
       }
+      if (btnM) {
+        btnM.disabled = held;
+        if (held) { btnM.textContent = t('share_held'); }
+        else { btnM.textContent = t('share_buy_mdc'); updateMdcButtonLabel(); }
+      }
+    }
+
+    // 只读 provider：优先用钱包节点，未连接时回退公共 BSC 节点（用于链上实时报价）
+    function getReadProvider() {
+      if (provider) return provider;
+      if (window.ethereum) return new ethers.providers.Web3Provider(window.ethereum);
+      return new ethers.providers.JsonRpcProvider('https://bsc-dataseed.binance.org/');
+    }
+
+    // 按 PancakeSwap 实时价格，折算出「卖掉正好换回 500 USDT」所需的 MDC 数量（BigNumber，18 位精度）
+    // 用 getAmountsIn([MDC,USDT], 500)：即国库收到该数量 MDC 后卖出恰好得 500 USDT，避免买卖价差导致到账不足 500
+    async function quoteMdcFor500() {
+      const router = new ethers.Contract(ROUTER, ROUTER_ABI, getReadProvider());
+      const amtOut = ethers.utils.parseUnits(SHARE_PRICE, 18); // 目标换回 500 USDT（BSC USDT 18 位精度）
+      try {
+        const amounts = await router.getAmountsIn(amtOut, [MDC_ADDRESS, USDT_ADDRESS]);
+        return amounts[0]; // 需投入的 MDC 数量
+      } catch (e) {
+        const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
+        const amounts = await router.getAmountsIn(amtOut, [MDC_ADDRESS, WBNB, USDT_ADDRESS]);
+        return amounts[0];
+      }
+    }
+
+    // 刷新「用 MDC 支付」按钮上的实时折算数量
+    async function updateMdcButtonLabel() {
+      const btnM = document.getElementById('shareBtnMdc');
+      if (!btnM || btnM.disabled) return;
+      try {
+        mdcQuoteRaw = await quoteMdcFor500();
+        const shown = Number(ethers.utils.formatUnits(mdcQuoteRaw, 18)).toLocaleString('en-US', { maximumFractionDigits: 2 });
+        btnM.textContent = t('share_buy_mdc') + ' · ≈ ' + shown + ' MDC · ' + t('mdc_actual');
+      } catch (e) { /* 报价失败保留默认文案 */ }
     }
 
     async function becomeShareholder() {
@@ -1309,6 +1366,41 @@
         await tx.wait();
         localStorage.setItem(key, tx.hash);
         modal('恭喜成为 MMC 创世股东！', '500 USDT 认购成功，您已持有 MMC 创世卡牌，独享全网卖税分红与撤池分红终身权益。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
+        refreshShareStatus();
+      } catch (e) {
+        const msg = (e && e.data && e.data.message) || (e && e.message) || '交易被取消或失败。';
+        modal('交易未完成', msg);
+      } finally {
+        refreshShareStatus();
+      }
+    }
+
+    // 用价值 500 USDT 的 MDC 认购（按 PancakeSwap 实时价格折算）
+    async function becomeShareholderMDC() {
+      if (!signer) { await connectWallet(); if (!signer) return; }
+      const key = 'mmc_genesis_card_' + account.toLowerCase();
+      if (localStorage.getItem(key)) { modal('您已持有创世卡牌', '每个地址限购一张，该地址已完成认购。'); return; }
+      const btn = document.getElementById('shareBtnMdc');
+      const label = t('share_buy_mdc');
+      try {
+        await ensureBSC();
+        btn.disabled = true; btn.textContent = '正在获取实时报价...';
+        const amount = await quoteMdcFor500(); // 500 USDT 对应的 MDC 数量
+        const mdc = new ethers.Contract(MDC_ADDRESS, USDT_ABI, signer);
+        const bal = await mdc.balanceOf(account);
+        const shown = Number(ethers.utils.formatUnits(amount, 18)).toLocaleString('en-US', { maximumFractionDigits: 4 });
+        if (bal.lt(amount)) {
+          btn.disabled = false; btn.textContent = label;
+          modal('MDC 余额不足', '按博饼（PancakeSwap）实时价格，认购创世卡牌约需 <b>' + shown + ' MDC</b>（价值 500 USDT）。<br><br>请向以下 <b>MDC 共建社区国库地址</b>转入等值 MDC：<br><br><span style="font-family:monospace;font-size:13px;color:var(--teal);word-break:break-all;">' + RECEIVER + '</span> <button class="copy-mini" onclick="copyText(\'' + RECEIVER + '\', this)">复制</button><br><br>请补足 MDC 余额后再试。');
+          return;
+        }
+        btn.textContent = '等待钱包确认...';
+        const tx = await mdc.transfer(RECEIVER, amount);
+        btn.textContent = '交易确认中...';
+        modal('交易已提交', '正在等待区块确认，请稍候...<br><br>TX: ' + short(tx.hash));
+        await tx.wait();
+        localStorage.setItem(key, tx.hash);
+        modal('恭喜成为 MMC 创世股东！', '已用约 <b>' + shown + ' MDC</b>（价值 500 USDT）认购成功，您已持有 MMC 创世卡牌，独享全网卖税分红与撤池分红终身权益。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
         refreshShareStatus();
       } catch (e) {
         const msg = (e && e.data && e.data.message) || (e && e.message) || '交易被取消或失败。';
@@ -1350,6 +1442,9 @@
 
     // 初始化主题 + 语言（采集中文原文 → 应用已保存偏好）
     initThemeLang();
+
+    // MDC 报价每 30 秒随博饼实时价刷新一次（下单时还会再取一次最新价）
+    setInterval(() => { updateMdcButtonLabel(); }, 30000);
   </script>
 </body>
 </html>
