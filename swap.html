@@ -140,7 +140,6 @@
     .modal-mask { position: fixed; inset: 0; background: rgba(3,5,9,0.75); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 20px; }
     .modal-mask.show { display: flex; }
     .modal { max-width: 420px; width: 100%; border-radius: 20px; padding: 30px 26px; text-align: center; background: linear-gradient(160deg, #131c28, #0b121c); border: 1px solid rgba(45,212,191,0.3); box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
-    .modal .m-ic { font-size: 44px; margin-bottom: 12px; }
     .modal .m-title { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px; }
     .modal .m-text { font-size: 14px; color: #b6bfd0; line-height: 1.8; word-break: break-word; }
     .modal .m-text a { color: var(--teal); }
@@ -175,7 +174,7 @@
     <a class="brand" href="index.html" style="text-decoration:none;color:inherit;"><span class="mark"><svg class="logo-ico"><use href="#mmcLogo"></use></svg></span><span>MMC<span class="grad"> · 您的MDC理财工具</span></span></a>
     <div class="nav-actions">
       <button class="btn-wallet" id="walletBtn" onclick="connectWallet()">连接钱包</button>
-      <button class="menu-btn" onclick="openMenu()" aria-label="打开菜单">☰ 菜单</button>
+      <button class="menu-btn" onclick="openMenu()" aria-label="打开菜单">菜单</button>
     </div>
   </nav>
 
@@ -187,7 +186,7 @@
       <button class="drawer-close" onclick="closeMenu()" aria-label="关闭菜单">&times;</button>
     </div>
     <div class="drawer-wallet">
-      <button class="btn-wallet" id="walletBtn2" onclick="connectWallet()">💎 连接钱包</button>
+      <button class="btn-wallet" id="walletBtn2" onclick="connectWallet()">连接钱包</button>
     </div>
     <nav class="drawer-body">
       <div class="drawer-group">
@@ -232,7 +231,7 @@
         </div>
         <div class="tk-row">
           <input id="amountIn" class="tk-input" type="text" inputmode="decimal" placeholder="0.0" oninput="onAmountInput()" autocomplete="off">
-          <span class="tk-pill"><span id="fromIcon">💵</span><span id="fromSym">USDT</span></span>
+          <span class="tk-pill"><span id="fromSym">USDT</span></span>
         </div>
       </div>
 
@@ -247,7 +246,7 @@
         </div>
         <div class="tk-row">
           <input id="amountOut" class="tk-input" type="text" placeholder="0.0" readonly>
-          <span class="tk-pill"><span id="toIcon">🪙</span><span id="toSym">MDC</span></span>
+          <span class="tk-pill"><span id="toSym">MDC</span></span>
         </div>
       </div>
 
@@ -269,7 +268,7 @@
 
       <div class="min-line" id="minLine"></div>
 
-      <button class="action-btn" id="actionBtn" onclick="handleAction()" data-act="connect">💎 连接钱包</button>
+      <button class="action-btn" id="actionBtn" onclick="handleAction()" data-act="connect">连接钱包</button>
     </div>
 
     <p class="defl-note">MDC 交易含约 2% 税点</p>
@@ -278,7 +277,6 @@
   <!-- 弹窗 -->
   <div class="modal-mask" id="modalMask" onclick="closeModal(event)">
     <div class="modal" onclick="event.stopPropagation()">
-      <div class="m-ic" id="mIc">💎</div>
       <div class="m-title" id="mTitle">提示</div>
       <div class="m-text" id="mText"></div>
       <button class="m-btn" onclick="closeModal()">知道了</button>
@@ -299,8 +297,8 @@
     const ROUTER = '0x10ED43C718714eb63d5aA57B78B54704E256024E';
     // 代币（MDC 由用户指定合约地址；USDT 为 BSC 官方 BEP-20）
     const TOKENS = {
-      USDT: { symbol: 'USDT', address: '0x55d398326f99059fF775485246999027B3197955', decimals: 18, icon: '💵' },
-      MDC:  { symbol: 'MDC',  address: '0xd1ba69a44888ee50819c554d3d6f4ee457622894', decimals: 18, icon: '🪙' }
+      USDT: { symbol: 'USDT', address: '0x55d398326f99059fF775485246999027B3197955', decimals: 18 },
+      MDC:  { symbol: 'MDC',  address: '0xd1ba69a44888ee50819c554d3d6f4ee457622894', decimals: 18 }
     };
     const ERC20_ABI = [
       'function balanceOf(address) view returns (uint256)',
@@ -334,8 +332,7 @@
       if (!isFinite(n) || n === 0) return '0';
       return n.toLocaleString('en-US', { maximumFractionDigits: 6 });
     }
-    function modal(ic, title, text) {
-      document.getElementById('mIc').textContent = ic;
+    function modal(title, text) {
       document.getElementById('mTitle').textContent = title;
       document.getElementById('mText').innerHTML = text;
       document.getElementById('modalMask').classList.add('show');
@@ -372,7 +369,7 @@
       }
     }
     async function connectWallet() {
-      if (!window.ethereum) { modal('🦊', '未检测到钱包', '请在 TP 钱包、币安钱包、MetaMask 等支持 BSC 的 Web3 钱包中打开本页面。'); return; }
+      if (!window.ethereum) { modal('未检测到钱包', '请在 TP 钱包、币安钱包、MetaMask 等支持 BSC 的 Web3 钱包中打开本页面。'); return; }
       try {
         await window.ethereum.request({ method: 'eth_requestAccounts' });
         await ensureBSC();
@@ -384,11 +381,11 @@
         await refreshAllowance();
         updateButton();
       } catch (e) {
-        modal('⚠️', '连接失败', parseErr(e));
+        modal('连接失败', parseErr(e));
       }
     }
     function updateWalletUI() {
-      [['walletBtn', '连接钱包'], ['walletBtn2', '💎 连接钱包']].forEach(([id, def]) => {
+      [['walletBtn', '连接钱包'], ['walletBtn2', '连接钱包']].forEach(([id, def]) => {
         const btn = document.getElementById(id);
         if (!btn) return;
         if (account) { btn.textContent = short(account); btn.classList.add('connected'); }
@@ -399,9 +396,7 @@
     /* ===== 渲染：代币、滑点 ===== */
     function renderTokens() {
       document.getElementById('fromSym').textContent = curFrom().symbol;
-      document.getElementById('fromIcon').textContent = curFrom().icon;
       document.getElementById('toSym').textContent = curTo().symbol;
-      document.getElementById('toIcon').textContent = curTo().icon;
     }
     function renderSlippage() {
       document.querySelectorAll('.slip-btn').forEach(b => {
@@ -522,8 +517,8 @@
     function updateButton() {
       const btn = document.getElementById('actionBtn');
       const amt = parseIn();
-      if (!account) { btn.textContent = '💎 连接钱包'; btn.disabled = false; btn.dataset.act = 'connect'; return; }
-      if (quoting) { btn.textContent = '⏳ 获取报价中...'; btn.disabled = true; btn.dataset.act = 'none'; return; }
+      if (!account) { btn.textContent = '连接钱包'; btn.disabled = false; btn.dataset.act = 'connect'; return; }
+      if (quoting) { btn.textContent = '获取报价中...'; btn.disabled = true; btn.dataset.act = 'none'; return; }
       if (amt.isZero()) { btn.textContent = '输入兑换数量'; btn.disabled = true; btn.dataset.act = 'none'; return; }
       if (fromBal && amt.gt(fromBal)) { btn.textContent = curFrom().symbol + ' 余额不足'; btn.disabled = true; btn.dataset.act = 'none'; return; }
       if (!lastAmountOut) { btn.textContent = '无法兑换'; btn.disabled = true; btn.dataset.act = 'none'; return; }
@@ -544,14 +539,14 @@
       try {
         await ensureBSC();
         const token = new ethers.Contract(curFrom().address, ERC20_ABI, signer);
-        btn.disabled = true; btn.textContent = '⏳ 等待授权确认...';
+        btn.disabled = true; btn.textContent = '等待授权确认...';
         const tx = await token.approve(ROUTER, ethers.constants.MaxUint256);
-        btn.textContent = '⏳ 授权确认中...';
+        btn.textContent = '授权确认中...';
         await tx.wait();
         await refreshAllowance();
-        modal('✅', '授权成功', '已授权 PancakeSwap 路由使用你的 ' + curFrom().symbol + '，现在可以点击「兑换」完成交易。');
+        modal('授权成功', '已授权 PancakeSwap 路由使用你的 ' + curFrom().symbol + '，现在可以点击「兑换」完成交易。');
       } catch (e) {
-        modal('⚠️', '授权未完成', parseErr(e));
+        modal('授权未完成', parseErr(e));
       } finally {
         updateButton();
       }
@@ -568,20 +563,20 @@
         const token = new ethers.Contract(curFrom().address, ERC20_ABI, signer);
         // 余额校验
         const bal = await token.balanceOf(account);
-        if (bal.lt(amt)) { modal('💰', curFrom().symbol + ' 余额不足', '当前余额不足以完成本次兑换，请减少数量后重试。'); return; }
+        if (bal.lt(amt)) { modal(curFrom().symbol + ' 余额不足', '当前余额不足以完成本次兑换，请减少数量后重试。'); return; }
         // 授权校验
         const allw = await token.allowance(account, ROUTER);
-        if (allw.lt(amt)) { allowanceCache = allw; updateButton(); modal('🔐', '需要先授权', '请先点击「授权 ' + curFrom().symbol + '」按钮完成授权后再兑换。'); return; }
+        if (allw.lt(amt)) { allowanceCache = allw; updateButton(); modal('需要先授权', '请先点击「授权 ' + curFrom().symbol + '」按钮完成授权后再兑换。'); return; }
         const router = new ethers.Contract(ROUTER, ROUTER_ABI, signer);
         const path = [curFrom().address, curTo().address];
         const amountOutMin = minOut();
         const deadline = Math.floor(Date.now() / 1000) + 1200; // 20 分钟
-        btn.disabled = true; btn.textContent = '⏳ 等待钱包确认...';
+        btn.disabled = true; btn.textContent = '等待钱包确认...';
         const tx = await router.swapExactTokensForTokensSupportingFeeOnTransferTokens(amt, amountOutMin, path, account, deadline);
-        btn.textContent = '⏳ 交易确认中...';
-        modal('⏳', '交易已提交', '正在等待区块确认，请稍候...<br><br>TX: ' + short(tx.hash));
+        btn.textContent = '交易确认中...';
+        modal('交易已提交', '正在等待区块确认，请稍候...<br><br>TX: ' + short(tx.hash));
         await tx.wait();
-        modal('🎉', '兑换成功！', '已成功兑换 <b>' + curFrom().symbol + ' → ' + curTo().symbol + '</b>。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
+        modal('兑换成功！', '已成功兑换 <b>' + curFrom().symbol + ' → ' + curTo().symbol + '</b>。<br><br><a href="https://bscscan.com/tx/' + tx.hash + '" target="_blank">在 BscScan 查看交易 ↗</a>');
         document.getElementById('amountIn').value = '';
         document.getElementById('amountOut').value = '';
         lastAmountOut = null;
@@ -589,7 +584,7 @@
         await refreshBalances();
         await refreshAllowance();
       } catch (e) {
-        modal('⚠️', '交易未完成', parseErr(e));
+        modal('交易未完成', parseErr(e));
       } finally {
         updateButton();
       }
