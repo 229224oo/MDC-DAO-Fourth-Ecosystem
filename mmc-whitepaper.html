@@ -115,11 +115,11 @@
       <span class="badge">WHITEPAPER · V1.0</span>
       <h1>MDC 原生代币</h1>
       <div class="en">MEET · MY DESTINY</div>
-      <p class="tagline">通缩为核 · LP 挖矿产出 · 只能卖不能买<br>MMC 链上持续销毁，流通量缩减到极致 —— 遇见造化，我命由我</p>
+      <p class="tagline">通缩为核 · LP 挖矿产出 · 只能卖不能买<br>MDC 链上持续销毁，流通量缩减到极致 —— 遇见造化，我命由我</p>
       <div class="meta">
         <span>公链：<b>BNB Chain</b></span>
         <span>总量：<b>100 万枚</b></span>
-        <span>矿机：<b>122 TH/s</b></span>
+        <span>开放买盘：<b>$1000</b></span>
         <span>社区：<b>MDC社区共建</b></span>
       </div>
     </div>
@@ -129,12 +129,12 @@
       <ol>
         <li><a href="#s1">项目概述</a></li>
         <li><a href="#s2">核心通缩机制</a></li>
-        <li><a href="#s3">卖出与撤池规则</a></li>
+        <li><a href="#s3">买卖税率与撤池规则</a></li>
         <li><a href="#s4">资金分配模型</a></li>
         <li><a href="#s5">商业模式解读</a></li>
         <li><a href="#s6">多方共赢 · 价值捕获</a></li>
-        <li><a href="#s7">矿机算力体系</a></li>
-        <li><a href="#s8">创世矿工权益</a></li>
+        <li><a href="#s7">创世卡牌体系</a></li>
+        <li><a href="#s8">业绩公约卡牌</a></li>
         <li><a href="#s9">参与方式</a></li>
         <li><a href="#s10">社区愿景</a></li>
       </ol>
@@ -142,14 +142,14 @@
 
     <div class="section" id="s1">
       <div class="section-head"><div class="num">01</div><h2>项目概述</h2></div>
-      <p><span class="hl">MMC</span> 是 MDC 生态的原生代币，采用通缩暴富机制，发行总量 <span class="hl">100 万枚</span>。MMC <span class="hl">不能买、只能卖</span>，唯一获取方式是通过 LP 挖矿产出。</p>
-      <p>通过每日通缩、黑洞销毁、矿机产出与 LP 实时分红，MMC 在链上持续销毁，流通量不断缩减、稀缺性不断增强，构建「越销越稀缺、越稀缺越有价值」的正向价值模型。</p>
-      <p>MMC <span class="hl">完全去中心化</span>：所有规则全部以智能合约形式上链固化，<b>任何人（包括项目方）都无法更改代码与规则</b>，买卖、销毁、分红、挖矿全部由链上合约自动执行，公开透明、不可篡改。</p>
+      <p><span class="hl">MDC</span> 是 MDC 生态的原生代币，采用通缩暴富机制，发行总量 <span class="hl">100 万枚</span>，与 MDC 组建流动性。买盘开放前 MDC <span class="hl">只能卖、不能买</span>，唯一获取方式是通过 LP 挖矿产出；当价格达到 <span class="hl">$1000</span> 时自动开放买盘。</p>
+      <p>通过每日通缩、黑洞销毁、MDC-LP 质押分红与 MDC 流动性挖矿，MDC 在链上持续销毁，流通量不断缩减、稀缺性不断增强，构建「越销越稀缺、越稀缺越有价值」的正向价值模型。</p>
+      <p>MDC <span class="hl">完全去中心化</span>：所有规则全部以智能合约形式上链固化，<b>任何人（包括项目方）都无法更改代码与规则</b>，买卖、销毁、分红、挖矿全部由链上合约自动执行，公开透明、不可篡改。</p>
       <div class="card">
         <div class="grid-3">
           <div class="stat"><div class="v">100 万</div><div class="l">发行总量（枚）</div></div>
           <div class="stat"><div class="v">每日 2%</div><div class="l">LP 底池通缩</div></div>
-          <div class="stat"><div class="v">只能卖</div><div class="l">唯 LP 挖矿产出</div></div>
+          <div class="stat"><div class="v">$1000</div><div class="l">自动开放买盘</div></div>
         </div>
       </div>
     </div>
@@ -158,26 +158,33 @@
       <div class="section-head"><div class="num">02</div><h2>核心通缩机制</h2></div>
       <p>LP 底池每天通缩 <span class="hl">2%</span>，按以下比例分配，驱动持续通缩与分红：</p>
       <div class="grid-3">
-        <div class="feat"><div class="ft">0.3% 黑洞销毁</div><div class="fd">代币<b>永久销毁</b>，流通量不可逆缩减，是通缩的主力引擎。</div></div>
-        <div class="feat"><div class="ft">0.7% 矿机分红</div><div class="fd">按算力分红给矿机持有者，为算力产出提供持续燃料，反哺挖矿生态。</div></div>
-        <div class="feat"><div class="ft">1% LP 分红</div><div class="fd">按<b>区块实时分红</b>给 LP 持有者，持币挖矿即享被动收益。</div></div>
+        <div class="feat"><div class="ft">0.2% 黑洞销毁</div><div class="fd">代币<b>永久销毁</b>，流通量不可逆缩减，是通缩的主力引擎。</div></div>
+        <div class="feat"><div class="ft">0.6% MDC-LP 质押分红</div><div class="fd">质押 <b>MDC-LP（MDC+USDT）</b>按算力权重分红；质押 <b>4 / 7 / 9 / 12 月</b> 分别为 <b>0.5 / 1 / 1.5 / 2 倍</b>算力，锁得越久算力越高。</div></div>
+        <div class="feat"><div class="ft">1.2% MDC 流动性挖矿</div><div class="fd">提供 <b>MDC 流动性</b>参与挖矿，按<b>区块实时分红</b>，持币挖矿即享被动收益。</div></div>
       </div>
     </div>
 
     <div class="section" id="s3">
-      <div class="section-head"><div class="num">03</div><h2>卖出与撤池规则</h2></div>
+      <div class="section-head"><div class="num">03</div><h2>买卖税率与撤池规则</h2></div>
+      <p>以 <span class="hl">$1000</span> 为界，买卖税率分两阶段；卖出把 <b>MDC</b> 转进合约地址，<b>MDC 马上到账钱包</b>，一笔交易直接到账，无需提前授权。</p>
       <div class="grid-2">
         <div class="card">
           <div class="feat" style="background:transparent;border:none;padding:0;">
-            <div class="ft">卖出机制</div>
-            <p style="margin-top:8px;font-size:14px;color:#c2cad8;">把 <b>MMC</b> 转进合约地址，<b>MDC 马上到账钱包</b>，一笔交易直接到账，无需提前授权。</p>
+            <div class="ft">买盘开放前（&lt; $1000）</div>
+            <ul class="bullets" style="margin-top:8px;"><li>买入 <b>不开放</b>，只能卖 · 唯 LP 挖矿产出</li><li>卖税 <b>24%</b>：创世卡牌 <b>20%</b></li><li>团队业绩公约卡牌 <b>2%</b></li><li>回流底池归黑洞 <b>2%</b></li></ul>
           </div>
         </div>
         <div class="card">
           <div class="feat" style="background:transparent;border:none;padding:0;">
-            <div class="ft">撤 LP 规则</div>
-            <ul class="bullets" style="margin-top:8px;"><li>MDC <b>全部到账</b></li><li>MMC <b>70% 销毁</b></li><li>MMC <b>20% 到账钱包</b></li><li>MMC <b>10% 创世卡牌</b></li></ul>
+            <div class="ft">买盘开放后（≥ $1000）</div>
+            <ul class="bullets" style="margin-top:8px;"><li>买税 <b>0</b>，自由买入</li><li>卖税下调为 <b>6%</b></li><li>创世卡牌由 20% 下调为 <b>2%</b></li><li>业绩卡牌 <b>2%</b> + 回流底池 <b>2%</b></li></ul>
           </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <div class="feat" style="background:transparent;border:none;padding:0;">
+          <div class="ft">撤 MDC-LP 规则</div>
+          <ul class="bullets" style="margin-top:8px;"><li>MDC <b>全部到账</b></li><li>MDC <b>70% 销毁</b></li><li>MDC <b>20% 到账钱包</b></li><li>MDC <b>10% 创世卡牌</b></li></ul>
         </div>
       </div>
       <div class="card" style="margin-top:16px;border-color:rgba(245,196,81,0.4);text-align:center;">
@@ -188,43 +195,51 @@
 
     <div class="section" id="s4">
       <div class="section-head"><div class="num">04</div><h2>资金分配模型</h2></div>
-      <p>每笔入金全部由链上合约<span class="hl">自动分配</span>，公开透明，<span class="hl">合计 100%</span>：</p>
+      <p>每笔入金全部由链上合约<span class="hl">自动分配</span>，公开透明，按 <span class="hl">50% 用户 / 50% 团队</span> 拆分：</p>
       <ul class="bullets">
-        <li><b>50% 生态流动性</b>：组建 MMC-LP 底池，夯实价格支撑。</li>
-        <li><b>18% 等级加权奖励</b>：按 M1–M6 团队等级差发放。</li>
-        <li><b>12% 联合股东红利</b>：M1–M6 股东分池分红。</li>
-        <li><b>9% 直推奖励</b>：直推 ≥ 10 枚 MDC 记为有效账户。</li>
-        <li><b>8% 直推排行榜</b>：日榜前 10 名 5% + 周榜前 10 名 3%。</li>
-        <li><b>3% 创世卡牌</b>：回馈创世卡牌持有者。</li>
+        <li><b>50% 组建 MDC-LP</b>：封装为 MDC-LP，<b>归用户所有、可随时撤出</b>，夯实价格支撑。</li>
+        <li><b>18% 等级奖励</b>：按 M1–M6 团队等级差发放，<b>6 级同级不拿</b>。</li>
+        <li><b>12% 达标在榜分红</b>：M1–M6 分池，达标在榜者共享分红。</li>
+        <li><b>9% 直推奖励</b>：账号需<b>保持 10 枚 MDC 在投</b>方为有效。</li>
+        <li><b>8% 直推打榜</b>：日榜前 10 名 5% + 周榜前 10 名 3%。</li>
+        <li><b>3% 团队业绩卡牌分红</b>：回馈团队业绩公约卡牌持有者。</li>
       </ul>
 
-      <p style="margin-top:22px;"><span class="hl">M1–M6 团队等级权益</span>：达成团队总业绩与直推业绩，解锁对应等级奖励与联合股东红利。</p>
+      <p style="margin-top:22px;"><span class="hl">M1–M6 团队等级权益</span>：达成团队总业绩与直推业绩，解锁对应等级奖励与达标在榜分红。</p>
       <div class="mtable-wrap">
         <table class="mtable">
           <thead>
-            <tr><th>等级</th><th>团队总业绩</th><th>直推业绩</th><th>等级奖励</th><th>股东红利</th></tr>
+            <tr><th>等级</th><th>团队总业绩</th><th>直推业绩</th><th>等级奖励</th><th>达标在榜分红</th></tr>
           </thead>
           <tbody>
-            <tr><td class="lv">M1</td><td><b>1,000</b> MDC</td><td><b>300</b> MDC</td><td class="rate">6%</td><td class="rate">2%</td></tr>
+            <tr><td class="lv">M1</td><td><b>1,000</b> MDC</td><td><b>300</b> MDC</td><td class="rate">6%</td><td class="rate">1%</td></tr>
             <tr><td class="lv">M2</td><td><b>10,000</b> MDC</td><td><b>3,000</b> MDC</td><td class="rate">5%</td><td class="rate">2%</td></tr>
             <tr><td class="lv">M3</td><td><b>30,000</b> MDC</td><td><b>9,000</b> MDC</td><td class="rate">3%</td><td class="rate">3%</td></tr>
             <tr><td class="lv">M4</td><td><b>100,000</b> MDC</td><td><b>30,000</b> MDC</td><td class="rate">2%</td><td class="rate">3%</td></tr>
-            <tr><td class="lv">M5</td><td><b>200,000</b> MDC</td><td><b>60,000</b> MDC</td><td class="rate">1%</td><td class="rate">1%</td></tr>
+            <tr><td class="lv">M5</td><td><b>200,000</b> MDC</td><td><b>60,000</b> MDC</td><td class="rate">1%</td><td class="rate">2%</td></tr>
             <tr><td class="lv">M6</td><td><b>300,000</b> MDC</td><td><b>90,000</b> MDC</td><td class="rate">1%</td><td class="rate">1%</td></tr>
           </tbody>
         </table>
       </div>
       <ul class="bullets">
-        <li><b>等级奖励</b>：按团队等级差逐级加权叠加，等级越高、奖励比例越高。</li>
-        <li><b>联合股东红利</b>：每个等级对应独立奖励池；首位达标的联合股东独享该池累积奖励，此后同级达标者共同均分。</li>
+        <li><b>等级奖励</b>（合计 18%）：按团队等级差逐级加权叠加，等级越高、奖励比例越高，<b>6 级同级不拿</b>。</li>
+        <li><b>达标在榜分红</b>（合计 12%）：每个等级对应独立奖励池；<b>首位达标者独享该池累积奖励</b>，此后由达标在榜者共同均分。</li>
       </ul>
 
       <div class="card" style="margin-top:16px;">
-        <div class="ft" style="font-size:15px;font-weight:800;color:#fff;margin-bottom:10px;">创世卡牌三重权益</div>
+        <div class="ft" style="font-size:15px;font-weight:800;color:#fff;margin-bottom:8px;">直推打榜（8%）</div>
         <ul class="bullets" style="margin:0;">
-          <li><b>进场分红 3%</b>：每笔进场入金，卡牌持有者按比例分得 3% 的 MDC。</li>
-          <li><b>卖币滑点 5%</b>：每笔卖出 MMC 收取 5% 滑点，分配给卡牌持有者。</li>
-          <li><b>撤池分红 10%</b>：全网每笔撤出 LP，卡牌持有者分得 10% 的 MMC。</li>
+          <li><b>日榜前 10 名（5%）</b>：1st 2% · 2nd 1.2% · 3rd 0.8% · 4th 0.4% · 5th 0.2% · 6–8th 各 0.1% · 9–10th 各 0.05%。</li>
+          <li><b>周榜前 10 名（3%）</b>：1st 1.2% · 2nd 0.6% · 3rd 0.3% · 4th 0.24% · 5th 0.18% · 6–8th 各 0.12% · 9–10th 各 0.06%。</li>
+          <li>均以<b>累计业绩</b>排名，直推奖励需账号<b>保持 10 枚 MDC 在投</b>。</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="ft" style="font-size:15px;font-weight:800;color:#fff;margin-bottom:10px;">创世卡牌权益</div>
+        <ul class="bullets" style="margin:0;">
+          <li><b>卖税分红</b>：全网每笔卖出税，买盘开放前分 <b>20%</b>、开放后分 <b>2%</b>，持卡即被动收租。</li>
+          <li><b>全网撤池分红 10% MDC</b>：任何人撤出 MDC-LP，创世卡牌持有者共享其中 10% 的 MDC。</li>
         </ul>
       </div>
     </div>
@@ -233,9 +248,9 @@
       <div class="section-head"><div class="num">05</div><h2>商业模式解读</h2></div>
       <p>MDC 原生代币的本质，是一台围绕「<span class="hl">通缩稀缺</span>」运转的<span class="hl">价值飞轮</span>。它用三组机制设计，把「买盘、供给、共识」三者锁进同一个正向循环：</p>
       <div class="grid-3">
-        <div class="feat"><div class="ft">① 供给单边收缩</div><div class="fd">MMC <b>只能卖、不能买</b>，唯一来源是 LP 挖矿产出；叠加每日 2% 通缩与撤池 70% 销毁，<b>流通量单边、不可逆地缩减</b>，天然制造稀缺。</div></div>
-        <div class="feat"><div class="ft">② 买盘持续注入</div><div class="fd">入金资金 <b>50% 直接组建 MMC-LP 底池</b>，把外部资金沉淀为流动性与价格地板；分级激励与直推排行榜持续激发入金动能，形成「地板支撑 + 增量买盘」的双层支撑。</div></div>
-        <div class="feat"><div class="ft">③ 收益反哺持有</div><div class="fd">1% LP 按区块实时分红、矿机产出，让「<b>持有即生息</b>」，降低抛压、拉长持币周期，进一步收紧流通。</div></div>
+        <div class="feat"><div class="ft">① 供给单边收缩</div><div class="fd">MDC <b>只能卖、不能买</b>，唯一来源是 LP 挖矿产出；叠加每日 2% 通缩与撤池 70% 销毁，<b>流通量单边、不可逆地缩减</b>，天然制造稀缺。</div></div>
+        <div class="feat"><div class="ft">② 买盘持续注入</div><div class="fd">入金资金 <b>50% 直接组建 MDC-LP 底池</b>，把外部资金沉淀为流动性与价格地板；分级激励与直推排行榜持续激发入金动能，形成「地板支撑 + 增量买盘」的双层支撑。</div></div>
+        <div class="feat"><div class="ft">③ 收益反哺持有</div><div class="fd">1.2% MDC 流动性挖矿按区块实时分红、0.6% MDC-LP 质押分红，让「<b>持有即生息</b>」，降低抛压、拉长持币周期，进一步收紧流通。</div></div>
       </div>
       <div class="card" style="margin-top:16px;">
         <div class="ft" style="font-size:15px;font-weight:800;color:#fff;margin-bottom:8px;">通缩价值飞轮</div>
@@ -247,55 +262,80 @@
       <div class="section-head"><div class="num">06</div><h2>多方共赢 · 价值捕获</h2></div>
       <p>机制把全网产生的价值，分层、精准地分配给不同角色，<span class="hl">越早进入、越核心的角色捕获越多</span>：</p>
       <div class="grid-2">
-        <div class="feat"><div class="ft">LP 矿工</div><div class="fd">封装 MMC-LP 自动挖矿，享 <b>1% LP 区块实时分红</b>与 MMC 产出，是生态的基础收益层。</div></div>
-        <div class="feat"><div class="ft">矿机持有者</div><div class="fd">持 122TH/s 凭证自动挖矿，0.7% 通缩持续注入矿机池作为燃料，<b>算力即被动现金流</b>。</div></div>
-        <div class="feat"><div class="ft">创世矿工</div><div class="fd">站在价值链最顶层，作为初代矿主叠加<b>超额 MMC-LP</b> 与头矿价值，挖创世区块、个人算力稳定出块拿全额奖励，<b>一次卡位、长期复利</b>。</div></div>
+        <div class="feat"><div class="ft">LP 挖矿用户</div><div class="fd">封装 MDC-LP 自动挖矿，享 <b>1.2% MDC 流动性挖矿</b>区块实时分红与 MDC 产出，是生态的基础收益层。</div></div>
+        <div class="feat"><div class="ft">业绩公约卡牌持有者</div><div class="fd">凭直推累计业绩领卡，独享每笔<b>进场 3% MDC 分红</b>与卖 MDC <b>2% 滑点分红</b>，<b>业绩即被动现金流</b>。</div></div>
+        <div class="feat"><div class="ft">创世卡牌持有者</div><div class="fd">站在价值链最顶层，独享<b>全网卖税分红</b>（开放前 20%/开放后 2%）与<b>全网撤池 10% MDC</b>，<b>一次卡位、长期收租</b>。</div></div>
       </div>
     </div>
 
     <div class="section" id="s7">
-      <div class="section-head"><div class="num">07</div><h2>矿机算力体系</h2></div>
-      <p>矿机型号 <span class="hl">MMC-122TH/s</span>，持有矿机凭证的地址将<span class="hl">自动在矿池挖矿</span>产出 MMC，<span class="hl">单台矿机可持续挖矿约一年</span>，以时间换空间长期盈利。三种获取方式，<span class="hl">首推「销毁获取」</span>：</p>
-      <div class="grid-3">
+      <div class="section-head"><div class="num">07</div><h2>创世卡牌体系</h2></div>
+      <p>创世卡牌是生态的<span class="hl">顶层身份凭证</span>，全网仅 <span class="hl">120 张</span>、每地址限持 <span class="hl">1 张</span>、分完即止。持卡即独享全网卖税分红与撤池分红，<span class="hl">一次卡位、长期收租</span>。</p>
+      <div class="grid-2">
         <div class="feat" style="border-color:rgba(245,196,81,0.5);background:linear-gradient(160deg,rgba(40,32,14,0.92),rgba(14,15,10,0.95));box-shadow:0 10px 30px rgba(245,196,81,0.12);">
-          <div class="ft">销毁获取 <span style="font-size:11px;color:#1a1304;background:var(--gold);padding:2px 9px;border-radius:10px;margin-left:6px;vertical-align:middle;">核心推荐</span></div>
-          <div class="fd">官网销毁价值 <b>500U 的 MMC</b>，即领 MMC-122TH/s 矿机凭证至钱包。</div>
+          <div class="ft">前 60 张 · 招募初创股东 <span style="font-size:11px;color:#1a1304;background:var(--gold);padding:2px 9px;border-radius:10px;margin-left:6px;vertical-align:middle;">核心推荐</span></div>
+          <div class="fd"><b>500 美金 / 张</b>面向初创股东招募，<b>每地址限购 1 张</b>。越早入局，越早锁定全生态终身分红权。</div>
         </div>
-        <div class="feat"><div class="ft">捐赠获取</div><div class="fd">捐赠 <b>1000 USDT</b> 直接领取矿机凭证，捐赠款<b>全部加进底池</b>。</div></div>
-        <div class="feat"><div class="ft">业绩奖励</div><div class="fd">直推业绩达 <b>5000 MDC</b>，<b>免费奖励</b>一台矿机凭证。</div></div>
+        <div class="feat"><div class="ft">后 60 张 · 销毁 / 购买获取</div><div class="fd">分 <b>5 批次</b>释放，可<b>销毁 MDC</b> 或用 <b>MDC 购买</b>获得，门槛逐批递增，各批 12 张、分完即止。</div></div>
+      </div>
+      <div class="mtable-wrap">
+        <table class="mtable">
+          <thead>
+            <tr><th>批次</th><th>数量</th><th>销毁 MDC 价值</th><th>或用 MDC 购买</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="lv">第 1 批</td><td><b>12</b> 张</td><td>销毁 <b>$1000</b> MDC</td><td class="rate">$2000 MDC</td></tr>
+            <tr><td class="lv">第 2 批</td><td><b>12</b> 张</td><td>销毁 <b>$2000</b> MDC</td><td class="rate">$4000 MDC</td></tr>
+            <tr><td class="lv">第 3 批</td><td><b>12</b> 张</td><td>销毁 <b>$4000</b> MDC</td><td class="rate">$6000 MDC</td></tr>
+            <tr><td class="lv">第 4 批</td><td><b>12</b> 张</td><td>销毁 <b>$6000</b> MDC</td><td class="rate">$8000 MDC</td></tr>
+            <tr><td class="lv">第 5 批</td><td><b>12</b> 张</td><td>销毁 <b>$8000</b> MDC</td><td class="rate">$10000 MDC</td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="card" style="margin-top:16px;border-color:rgba(245,196,81,0.4);">
-        <div class="ft" style="font-size:15px;font-weight:800;color:#fff;margin-bottom:10px;">为什么强烈推荐「销毁获取」矿机？</div>
+        <div class="ft" style="font-size:15px;font-weight:800;color:#fff;margin-bottom:10px;">创世卡牌两大权益</div>
         <ul class="bullets" style="margin:0;">
-          <li><b>减少代币流通量</b>：销毁 500U 的 MMC 即<b>永久退出流通</b>，直接为通缩飞轮加速，越多人销毁、稀缺越强。</li>
-          <li><b>活跃场外收购订单</b>：销毁需先持有 MMC，持续<b>催生场外收购需求</b>，盘活买盘、稳固价格地板。</li>
-          <li><b>玩法多元化</b>：销毁 / 捐赠 / 业绩三路并行，参与门槛与路径丰富，覆盖不同体量玩家。</li>
-          <li><b>时间换空间 · 持续盈利</b>：矿机自动挖矿、<b>可挖约一年</b>，把一次性销毁成本摊薄为长期稳定的产出现金流。</li>
+          <li><b>卖税分红 · 终身权益</b>：全网每笔卖出税独享，买盘开放前分 <b>20%</b>、开放后分 <b>2%</b>，持卡即被动收租。</li>
+          <li><b>全网撤池分红 · 10% MDC</b>：任何人撤出 MDC-LP，创世卡牌持有者共享其中 10% 的 MDC，越多人撤池、卡牌越赚。</li>
         </ul>
       </div>
     </div>
 
     <div class="section" id="s8">
-      <div class="section-head"><div class="num">08</div><h2>创世矿工权益</h2></div>
-      <p>初代矿主仅需 <span class="hl">捐赠 500 USDT / 份</span>（每个地址限申请一份，全部加进底池），即可成为 MMC 创世矿工，专享<span class="hl">超额 MMC-LP 配置</span>与<span class="hl">头矿价值</span>，独享最早、最厚的挖矿红利：</p>
-      <div class="grid-3">
-        <div class="feat"><div class="ft">挖 MMC 创世区块</div><div class="fd">创世初期全网算力极小，<b>每个区块都挖出最多的金矿</b>，初代矿工独享最厚产出。</div></div>
-        <div class="feat"><div class="ft">个人算力 · 稳定出块</div><div class="fd">全网矿机极少，不存在抢算力、矿池、大型矿场，<b>个人算力就能稳定出块、拿全额奖励</b>。</div></div>
-        <div class="feat"><div class="ft">超高收益周期</div><div class="fd">总矿场每天 <b>0.7%</b>，早期每台矿机都有超高收益，初代矿工<b>完整吃到最高奖励周期</b>。</div></div>
+      <div class="section-head"><div class="num">08</div><h2>业绩公约卡牌</h2></div>
+      <p>业绩公约卡牌凭<span class="hl">直推累计业绩</span>领取，全网共 <span class="hl">360 张</span>、分完即止，每地址<span class="hl">最多 1 张、不累加</span>，分 6 批次逐级释放：</p>
+      <div class="mtable-wrap">
+        <table class="mtable">
+          <thead>
+            <tr><th>批次</th><th>数量</th><th>领取条件（直推累计业绩）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="lv">第 1 批</td><td><b>120</b> 张</td><td>直推累计业绩达 <b>1,000</b> MDC</td></tr>
+            <tr><td class="lv">第 2 批</td><td><b>90</b> 张</td><td>直推累计业绩达 <b>2,000</b> MDC</td></tr>
+            <tr><td class="lv">第 3 批</td><td><b>60</b> 张</td><td>直推累计业绩达 <b>3,000</b> MDC</td></tr>
+            <tr><td class="lv">第 4 批</td><td><b>30</b> 张</td><td>直推累计业绩达 <b>4,000</b> MDC</td></tr>
+            <tr><td class="lv">第 5 批</td><td><b>30</b> 张</td><td>直推累计业绩达 <b>5,000</b> MDC</td></tr>
+            <tr><td class="lv">第 6 批</td><td><b>30</b> 张</td><td>直推累计业绩达 <b>6,000</b> MDC</td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="card" style="margin-top:16px;">
-        <div class="ft" style="font-size:15px;font-weight:800;color:#fff;margin-bottom:6px;">商业价值定位</div>
-        <div style="font-size:13.5px;color:#aeb7c7;">创世矿工以<b style="color:var(--gold);">最低成本、最早时点</b>卡位核心矿工权益——挖创世区块、个人算力稳定出块拿全额奖励，把生态的成长红利前置锁定。申请入口请见 DApp「成为 MMC 初代矿工」板块。</div>
+        <div class="ft" style="font-size:15px;font-weight:800;color:#fff;margin-bottom:10px;">业绩卡牌两大权益</div>
+        <ul class="bullets" style="margin:0;">
+          <li><b>进场分红 3% MDC</b>：每笔进场入金，业绩卡牌持有者按比例分得 3% 的 MDC。</li>
+          <li><b>卖币滑点分红 2%</b>：每笔卖出 MDC 收取 2% 滑点，分配给业绩卡牌持有者（均以 MDC 结算）。</li>
+        </ul>
+        <div style="font-size:13.5px;color:#aeb7c7;margin-top:10px;">共 <b style="color:var(--gold);">360 张、分完即止</b>，每地址最多 1 张、不累加；直推业绩<b style="color:var(--gold);">累计计算</b>，越早达标越早领卡收益。</div>
       </div>
     </div>
 
     <div class="section" id="s9">
       <div class="section-head"><div class="num">09</div><h2>参与方式</h2></div>
       <ul class="bullets">
-        <li><b>捐赠组 LP</b>：在官网<b>捐赠 MDC</b> 组合成 MMC-LP，获得 MMC-LP，<b>马上到账钱包</b>，一笔交易直接到账。</li>
-        <li><b>推荐绑定</b>：通过<b>推荐链接</b>绑定推荐关系。</li>
-        <li><b>有效绑定</b>：须在官网<b>捐赠 MDC 获得 LP 后</b>方可完成有效绑定。</li>
-        <li><b>自动挖矿</b>：封装为 MMC-LP 后，自动进入挖矿与区块实时分红。</li>
+        <li><b>官网入金组 LP</b>：在官网<b>入金</b>直接封装为 MDC-LP，<b>归用户所有、可随时撤出</b>，一笔交易直接到账。</li>
+        <li><b>推荐绑定《10 枚 MDC 在投》</b>：通过<b>推荐链接</b>绑定推荐关系，账号需保持 <b>10 枚 MDC 在投</b>方为有效。</li>
+        <li><b>入金后才能绑定</b>：须先<b>入金</b>后方可完成有效绑定；未入金绑定者将归为默认地址下级。</li>
+        <li><b>卖出 / 撤池到账</b>：卖 MDC 或撤 MDC-LP，MDC 马上到账钱包；撤池 MDC 全到账、MDC 70% 销毁 / 20% 钱包 / 10% 创世卡牌。</li>
       </ul>
     </div>
 
@@ -309,7 +349,7 @@
 
     <div class="footer">
       <div class="big">遇见造化 · 我命由我</div>
-      <div>© 2026 MMC · MDC社区共建　|　官方最新生态共建 MDC 长久繁荣向上</div>
+      <div>© 2026 MDC · MDC社区共建　|　官方最新生态共建 MDC 长久繁荣向上</div>
     </div>
   </div>
 
