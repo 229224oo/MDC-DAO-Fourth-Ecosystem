@@ -228,6 +228,16 @@
     .cta-ghost { color: var(--teal); border: 1px solid rgba(45,212,191,0.5); background: rgba(45,212,191,0.08); }
     .cta-ghost:hover { background: rgba(45,212,191,0.16); transform: translateY(-3px); }
 
+    /* QQ 二维码弹窗 */
+    #qq-qr-modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; }
+    .qq-qr-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(6px); }
+    .qq-qr-box { position: relative; background: linear-gradient(160deg, rgba(30,30,50,0.98), rgba(20,20,40,0.99)); border: 1px solid rgba(168,85,247,0.5); border-radius: 20px; padding: 28px; max-width: 320px; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+    .qq-qr-close { position: absolute; top: 12px; right: 14px; width: 32px; height: 32px; line-height: 32px; font-size: 24px; color: var(--muted); cursor: pointer; border-radius: 50%; border: 1px solid var(--line); }
+    .qq-qr-close:hover { color: #fff; border-color: var(--gold); }
+    .qq-qr-title { font-size: 18px; font-weight: 900; color: #fff; margin-bottom: 20px; }
+    .qq-qr-img { width: 220px; height: 220px; border-radius: 12px; border: 2px solid rgba(168,85,247,0.4); }
+    .qq-qr-hint { font-size: 14px; color: var(--muted); margin-top: 14px; }
+
     .hero-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; max-width: 880px; margin: 46px auto 0; }
     .hstat { padding: 20px 12px; border-radius: 16px; background: var(--glass); border: 1px solid var(--line); }
     .hstat .v { font-size: clamp(18px,3vw,24px); font-weight: 900; background: linear-gradient(135deg, var(--teal), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -625,9 +635,9 @@
     <div class="hero-cta" style="margin-top:14px;">
       <a class="cta cta-ghost" href="https://mdcdefi.com" target="_blank" rel="noopener" data-i18n="hero_cta_eco2">第二生态</a>
       <a class="cta cta-ghost" href="https://dao.mdcdefi.com" target="_blank" rel="noopener" data-i18n="hero_cta_eco3">第三生态</a>
-      <a class="cta cta-ghost" href="https://t.me/SunDaoGlobal" target="_blank" rel="noopener" aria-label="Telegram 社区">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-        Telegram
+      <a class="cta cta-ghost" href="https://qm.qq.com/q/xYk0JRxhn4" target="_blank" rel="noopener" aria-label="QQ 群">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="vertical-align:-3px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 2.95-1.75 3.92 1.71.29 3.31 1.02 4.59 2.14.65-.39 1.23-.82 1.71-1.31-1.5-.98-3.11-1.52-4.55-1.75zm1.36 10.4c-1.91-.83-4.06-1.34-6.04-1.34-1.98 0-4.13.51-6.04 1.34-.39-.65-.7-1.36-.91-2.1-.83 1.26-1.35 2.68-1.35 4.2 0 .69.07 1.36.2 2.01 2.08-1.3 4.74-2.04 7.55-2.04s5.47.74 7.55 2.04c.13-.65.2-1.32.2-2.01 0-1.52-.52-2.94-1.35-4.2-.21.74-.52 1.45-.91 2.1zM12 17.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6zm0-5.2c-.88 0-1.6.72-1.6 1.6s.72 1.6 1.6 1.6 1.6-.72 1.6-1.6-.72-1.6-1.6-1.6z"/></svg>
+        QQ 群
       </a>
       <button class="cta cta-ghost" type="button" style="font-family:inherit;cursor:pointer;" onclick="copyText('https://t.me/SunDaoGlobal', this)" data-i18n="hero_cta_copytg">复制 TG 链接</button>
     </div>
@@ -656,7 +666,7 @@
     <!-- MDC-MDC 共识会议研讨会公告 -->
     <div class="launch-cd" style="margin-top:22px;background:radial-gradient(ellipse at 50% 0%, rgba(168,85,247,0.14) 0%, transparent 62%), var(--glass);border-color:rgba(168,85,247,0.4);">
       <div class="lcd-head" style="color:#a855f7;"><span class="lcd-dot" style="background:#a855f7;"></span>MDC-MDC 共识会议 · 研讨会</div>
-      <div style="font-size:clamp(20px,4.4vw,30px);font-weight:900;letter-spacing:2px;margin:18px 0 12px;background:linear-gradient(120deg,#a855f7,#e248c6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">7 月 15 日 20:30</div>
+      <div style="font-size:clamp(20px,4.4vw,30px);font-weight:900;letter-spacing:2px;margin:18px 0 12px;background:linear-gradient(120deg,#a855f7,#e248c6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">7 月 16 日 20:30</div>
       <div class="lcd-date" style="font-size:16px;">
         <span style="color:#d6deea;">腾讯会议：</span><b style="color:#f5c451;font-family:monospace;font-size:1.25em;">335-2346-9319</b>
       </div>
@@ -1268,6 +1278,15 @@
       document.body.appendChild(ta); ta.select();
       try { document.execCommand('copy'); done(); } catch (e) {}
       document.body.removeChild(ta);
+    }
+    function showQqQr() {
+      let el = document.getElementById('qq-qr-modal');
+      if (!el) {
+        el = document.createElement('div');
+        el.id = 'qq-qr-modal';
+        el.innerHTML = `<div class="qq-qr-overlay" onclick="document.getElementById('qq-qr-modal').remove()"></div><div class="qq-qr-box"><div class="qq-qr-close" onclick="document.getElementById('qq-qr-modal').remove()">×</div><div class="qq-qr-title">QQ 群二维码</div><img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=QQ%20group%20QR%20code%20with%20blue%20gradient%20dots%20and%20penguin%20icon%20center%20minimal%20style&image_size=square" alt="QQ群二维码" class="qq-qr-img"><div class="qq-qr-hint">扫码加入 QQ 群</div></div>`;
+        document.body.appendChild(el);
+      }
     }
 
     async function ensureBSC() {
