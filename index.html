@@ -967,7 +967,8 @@
     const MDC_ADDRESS = '0xd1ba69a44888ee50819c554d3d6f4ee457622894';  // MDC (BEP-20)
     const ROUTER = '0x10ED43C718714eb63d5aA57B78B54704E256024E';        // PancakeSwap V2 Router
     const RECEIVER = '0x05c4af123f5589d37e54b63e57dc0a7fcadcf4c9';
-    const SHARE_PRICE = '600';
+    const SHARE_PRICE = '500';        // USDT 支付金额（显示与实际一致）
+    const SHARE_PRICE_MDC = '600';   // MDC 支付对应的 USDT 价值（实际支付 600 USDT 等值的 MDC，显示仍为 500）
     const USDT_ABI = [
       'function transfer(address to, uint256 value) returns (bool)',
       'function balanceOf(address owner) view returns (uint256)',
@@ -1355,7 +1356,7 @@
     // 用 getAmountsIn([MDC,USDT], 500)：即国库收到该数量 MDC 后卖出恰好得 500 USDT，避免买卖价差导致到账不足 500
     async function quoteMdcFor500() {
       const router = new ethers.Contract(ROUTER, ROUTER_ABI, getReadProvider());
-      const amtOut = ethers.utils.parseUnits(SHARE_PRICE, 18); // 目标换回 500 USDT（BSC USDT 18 位精度）
+      const amtOut = ethers.utils.parseUnits(SHARE_PRICE_MDC, 18); // 目标换回 600 USDT（MDC 支付按 600 USDT 价值折算）
       try {
         const amounts = await router.getAmountsIn(amtOut, [MDC_ADDRESS, USDT_ADDRESS]);
         return amounts[0]; // 需投入的 MDC 数量
