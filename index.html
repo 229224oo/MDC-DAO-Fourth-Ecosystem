@@ -314,6 +314,19 @@
     .benefit .bd { font-size: 13px; color: var(--text-body); line-height: 1.7; }
 
     .sh-action { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+    /* 创世卡牌销售进度条 */
+    .genesis-progress-wrap { width:100%; max-width:520px; background:rgba(0,0,0,0.35); border:1px solid rgba(45,212,191,0.25); border-radius:14px; padding:18px 22px; }
+    .gp-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+    .gp-label { font-size:14px; color:var(--text-body); font-weight:700; }
+    .gp-count { font-size:14px; color:var(--gold); font-weight:700; }
+    .gp-count b { font-size:20px; }
+    .gp-bar-bg { position:relative; width:100%; height:24px; background:rgba(45,212,191,0.12); border-radius:12px; overflow:hidden; }
+    .gp-bar-fill { height:100%; background:linear-gradient(90deg,#4ade80,#f5c451,#ef4444); border-radius:12px; transition:width .8s cubic-bezier(.22,1,.36,1); box-shadow:0 0 12px rgba(74,222,128,0.5); }
+    .gp-pct { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:13px; font-weight:900; color:#fff; text-shadow:0 1px 4px rgba(0,0,0,0.8); }
+    .gp-raised { margin-top:10px; font-size:13px; color:var(--text-dim); text-align:center; }
+    .gp-raised b { color:var(--gold); font-size:16px; }
+    .gp-sep { margin:0 6px; opacity:0.5; }
     .btn-share {
       width: 100%; max-width: 480px; padding: 20px; border-radius: 16px; border: none; cursor: pointer;
       font-size: 18px; font-weight: 900; letter-spacing: 1px; color: var(--btn-gold-ink);
@@ -702,6 +715,24 @@
         </div>
 
         <div class="sh-action">
+          <!-- 创世卡牌销售进度条 -->
+          <div class="genesis-progress-wrap">
+            <div class="gp-header">
+              <span class="gp-label" data-i18n="gen_progress_label">首批创世卡牌认购进度</span>
+              <span class="gp-count"><b id="gpSold">0</b> / 60 张</span>
+            </div>
+            <div class="gp-bar-bg">
+              <div class="gp-bar-fill" id="gpBarFill" style="width:0%"></div>
+              <span class="gp-pct" id="gpPct">0%</span>
+            </div>
+            <div class="gp-raised">
+              <span data-i18n="gen_progress_raised">已收到 USDT</span>
+              <b id="gpRaised">0</b> USDT
+              <span class="gp-sep">/</span>
+              <span data-i18n="gen_progress_target">目标</span> 30,000 USDT
+            </div>
+          </div>
+
           <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">立即认购创世卡牌 · 500 USDT</button>
           <button class="btn-share btn-share-mdc" id="shareBtnMdc" onclick="becomeShareholderMDC()" data-i18n="share_buy_mdc">或用 MDC 支付（价值 500 USDT）</button>
           <div class="sh-note" data-i18n="gen_note">点击按钮将通过你的 Web3 钱包自动向 MDC 共建社区国库 捐赠 <b>500 USDT（BSC）</b>认购创世卡牌。<b>每个地址限购 1 张</b>，请确认网络为 BNB Smart Chain。</div>
@@ -1065,6 +1096,9 @@
       gen_b4d: `The first 60 cards at <b>$500</b> go to founding shareholders. The earlier you join, the sooner you lock in lifetime ecosystem dividends.`,
       gen_note: `Clicking will use your Web3 wallet to donate <b>500 USDT (BSC)</b> to the MDC Community Treasury to subscribe a Genesis Card. <b>1 per address.</b> Please make sure the network is BNB Smart Chain.`,
       gen_note_mdc: `You may also subscribe with <b>MDC worth 500 USDT</b>; the amount is auto-converted at <b>PancakeSwap real-time price</b>.`,
+      gen_progress_label: `Genesis Card Subscription Progress`,
+      gen_progress_raised: `USDT Raised`,
+      gen_progress_target: `Goal`,
       // 核心机制
       mech_title: `Core <span class="g">Deflation Mechanism</span>`,
       mech_desc: `Sell-only below $1000 (minted only via LP mining); buying auto-opens at $1000. The LP pool <b>deflates 2% daily</b> — scarcer with every burn.`,
@@ -1343,6 +1377,34 @@
         if (held) { btnM.textContent = t('share_held'); }
         else { btnM.textContent = t('share_buy_mdc'); updateMdcButtonLabel(); }
       }
+      updateGenesisProgress();
+    }
+
+    // 读取国库地址的 USDT 余额，计算创世卡牌销售进度（500 USDT/张，共 60 张，目标 30000 USDT）
+    async function updateGenesisProgress() {
+      const TOTAL_SHARES = 60;
+      const PRICE_PER = 500;
+      const GOAL = TOTAL_SHARES * PRICE_PER; // 30000 USDT
+      const elBar = document.getElementById('gpBarFill');
+      const elPct = document.getElementById('gpPct');
+      const elSold = document.getElementById('gpSold');
+      const elRaised = document.getElementById('gpRaised');
+      if (!elBar) return;
+      try {
+        const rpc = getReadProvider();
+        const usdt = new ethers.Contract(USDT_ADDRESS, USDT_ABI, rpc);
+        const bal = await usdt.balanceOf(RECEIVER);
+        const raised = Number(ethers.utils.formatUnits(bal, 18));
+        const pct = Math.min(100, (raised / GOAL) * 100);
+        const sold = Math.min(TOTAL_SHARES, Math.floor(raised / PRICE_PER));
+        elBar.style.width = pct.toFixed(2) + '%';
+        elPct.textContent = pct.toFixed(1) + '%';
+        elSold.textContent = sold;
+        elRaised.textContent = raised.toLocaleString('en-US', { maximumFractionDigits: 2 });
+      } catch (e) {
+        // 链上读取失败，保留默认 0
+        console.warn('读取国库 USDT 余额失败:', e);
+      }
     }
 
     // 只读 provider：优先用钱包节点，未连接时回退公共 BSC 节点（用于链上实时报价）
@@ -1475,7 +1537,7 @@
     initThemeLang();
 
     // MDC 报价每 30 秒随博饼实时价刷新一次（下单时还会再取一次最新价）
-    setInterval(() => { updateMdcButtonLabel(); }, 30000);
+    setInterval(() => { updateMdcButtonLabel(); updateGenesisProgress(); }, 30000);
   </script>
 </body>
 </html>
