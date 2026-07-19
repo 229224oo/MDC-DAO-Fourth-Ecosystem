@@ -324,8 +324,8 @@
     .gp-bar-bg { position:relative; width:100%; height:24px; background:rgba(45,212,191,0.12); border-radius:12px; overflow:hidden; }
     .gp-bar-fill { height:100%; background:linear-gradient(90deg,#4ade80,#f5c451,#ef4444); border-radius:12px; transition:width .8s cubic-bezier(.22,1,.36,1); box-shadow:0 0 12px rgba(74,222,128,0.5); }
     .gp-pct { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:13px; font-weight:900; color:#fff; text-shadow:0 1px 4px rgba(0,0,0,0.8); }
-    .gp-raised { margin-top:10px; font-size:13px; color:var(--text-dim); text-align:center; }
-    .gp-raised b { color:var(--gold); font-size:16px; }
+    .gp-raised { margin-top:10px; font-size:12px; color:var(--text-dim); text-align:center; font-family:monospace; }
+    .gp-raised b { color:var(--teal); font-size:13px; }
     .gp-sep { margin:0 6px; opacity:0.5; }
     .btn-share {
       width: 100%; max-width: 480px; padding: 20px; border-radius: 16px; border: none; cursor: pointer;
@@ -688,7 +688,7 @@
         <div style="text-align:center;">
           <span class="sh-badge" data-i18n="gen_badge">GENESIS CARD · 创世卡牌招募</span>
           <div class="sh-title" data-i18n="gen_title">成为 <span class="g">MMC 创世股东 · Genesis Card</span></div>
-          <div class="sh-price" data-i18n="gen_price">全网仅 <b>120 张</b> · 首批 <b>60 张</b>面向初创股东开放 · <b>500 美金 / 张</b> · 每地址限购 1 张</div>
+          <div class="sh-price" data-i18n="gen_price">全网仅 <b>120 张</b> · 首批 <b>60 张</b>面向初创股东开放 · 每地址限购 1 张</div>
         </div>
 
         <div class="benefits">
@@ -702,7 +702,7 @@
             <div><div class="bt" data-i18n="gen_b3t">恒定稀缺 · 仅 120 张</div><div class="bd" data-i18n="gen_b3d">总量恒定、<b>分完即止</b>、每地址仅限 1 张，创世身份不可复制，稀缺即价值。</div></div>
           </div>
           <div class="benefit">
-            <div><div class="bt" data-i18n="gen_b4t">创世股东身份</div><div class="bd" data-i18n="gen_b4d">首批 60 张 <b>500 美金</b>面向初创股东，越早入局，越早锁定全生态终身分红权。</div></div>
+            <div><div class="bt" data-i18n="gen_b4t">创世股东身份</div><div class="bd" data-i18n="gen_b4d">首批 60 张面向初创股东，越早入局，越早锁定全生态终身分红权。</div></div>
           </div>
         </div>
 
@@ -710,25 +710,17 @@
           <!-- 创世卡牌销售进度条 -->
           <div class="genesis-progress-wrap">
             <div class="gp-header">
-              <span class="gp-label" data-i18n="gen_progress_label">首批创世卡牌认购进度</span>
-              <span class="gp-count"><b id="gpSold">0</b> / 60 张</span>
+              <span class="gp-label">创世股东招募进度</span>
+              <span class="gp-count"><b>100%</b></span>
             </div>
             <div class="gp-bar-bg">
-              <div class="gp-bar-fill" id="gpBarFill" style="width:0%"></div>
-              <span class="gp-pct" id="gpPct">0%</span>
-            </div>
-            <div class="gp-raised" style="display:none;">
-              <span data-i18n="gen_progress_raised">已收到 USDT</span>
-              <b id="gpRaised">0</b> USDT
-              <span class="gp-sep">/</span>
-              <span data-i18n="gen_progress_target">目标</span> 30,000 USDT
+              <div class="gp-bar-fill" style="width:100%"></div>
+              <span class="gp-pct">100%</span>
             </div>
           </div>
 
-          <button class="btn-share" id="shareBtn" onclick="becomeShareholder()">立即认购创世卡牌 · 500 USDT</button>
-          <button class="btn-share btn-share-mdc" id="shareBtnMdc" onclick="becomeShareholderMDC()" data-i18n="share_buy_mdc">或用 MDC 支付（价值 500 USDT）</button>
-          <div class="sh-note" data-i18n="gen_note">点击按钮将通过你的 Web3 钱包自动向 MDC 共建社区国库 捐赠 <b>500 USDT（BSC）</b>认购创世卡牌。<b>每个地址限购 1 张</b>，请确认网络为 BNB Smart Chain。</div>
-          <div class="sh-note" data-i18n="gen_note_mdc">也可用 <b>价值 500 USDT 的 MDC</b> 认购，数量按<b>博饼（PancakeSwap）实时价格</b>自动折算。</div>
+          <div class="sh-note">本次核心股东名额招募工作现已全部圆满结束，所有认购名额已满。超额认购资金将按支付地址原路全额退回。</div>
+
         </div>
       </div>
     </section>
@@ -903,9 +895,6 @@
           </tbody>
         </table>
       </div>
-      <div class="sh-action" style="margin-top:22px;">
-        <a class="cta cta-gold" href="#genesis" style="min-width:280px;justify-content:center;" data-i18n="cards_cta">立即认购创世卡牌 · 500 USDT</a>
-      </div>
     </section>
 
     <!-- 业绩卡牌 -->
@@ -1010,8 +999,8 @@
     var I18N_ZH = {
       wallet_connect: '连接钱包',
       share_held: '您已持有 MDC 创世卡牌',
-      share_buy: '立即认购创世卡牌 · 500 USDT',
-      share_buy_mdc: '或用 MDC 支付（价值 500 USDT）',
+      share_buy: '立即认购创世卡牌',
+      share_buy_mdc: '或用 MDC 支付',
       mdc_actual: '以实际到账为准',
       copied: '已复制',
       page_title: 'MMC最新生态'
@@ -1021,8 +1010,8 @@
       // 动态
       wallet_connect: 'Connect Wallet',
       share_held: 'You already hold an MDC Genesis Card',
-      share_buy: 'Subscribe Genesis Card · 500 USDT',
-      share_buy_mdc: 'Or Pay with MDC (worth 500 USDT)',
+      share_buy: 'Subscribe Genesis Card',
+      share_buy_mdc: 'Or Pay with MDC',
       mdc_actual: 'actual settlement prevails',
       copied: 'Copied',
       page_title: 'MMC Latest Ecosystem',
@@ -1162,7 +1151,7 @@
       cards_th4: `Or Buy w/ MDC`,
       batch1: `Batch 1`, batch2: `Batch 2`, batch3: `Batch 3`, batch4: `Batch 4`, batch5: `Batch 5`,
       unit_card: `cards`, unit_card2: `cards`, unit_card3: `cards`, unit_card4: `cards`, unit_card5: `cards`,
-      cards_cta: `Subscribe Genesis Card · 500 USDT`,
+      cards_cta: `Subscribe Genesis Card`,
       // 业绩卡牌
       perf_title: `Performance <span class="g">Covenant Cards</span>`,
       perf_desc: `Claim by cumulative direct-referral performance · 360 total · gone once sold out · max 1 per address · non-stackable`,
@@ -1369,7 +1358,7 @@
         if (held) { btnM.textContent = t('share_held'); }
         else { btnM.textContent = t('share_buy_mdc'); updateMdcButtonLabel(); }
       }
-      updateGenesisProgress();
+      // updateGenesisProgress(); // 招募已满，进度固定 100%
     }
 
     // 读取国库地址的 USDT 余额，计算创世卡牌销售进度（500 USDT/张，共 60 张，目标 30000 USDT）
@@ -1529,7 +1518,7 @@
     initThemeLang();
 
     // MDC 报价每 30 秒随博饼实时价刷新一次（下单时还会再取一次最新价）
-    setInterval(() => { updateMdcButtonLabel(); updateGenesisProgress(); }, 30000);
+    setInterval(() => { updateMdcButtonLabel(); /* updateGenesisProgress(); */ }, 30000);
   </script>
 </body>
 </html>
