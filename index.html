@@ -545,7 +545,7 @@
 
   <!-- 导航 -->
   <nav class="nav" id="top">
-    <div class="brand"><span class="mark"><svg class="logo-ico"><use href="#mmcLogo"></use></svg></span><span data-i18n="brand_nav">MMC<span class="grad"> · 您的MMC理财工具</span></span></div>
+    <div class="brand"><span class="mark"><svg class="logo-ico"><use href="#mmcLogo"></use></svg></span><span data-i18n="brand_nav">MMC<span class="grad"> · MDC理财工具</span></span></div>
     <div class="nav-actions">
       <button class="btn-wallet" id="walletBtn" onclick="connectWallet()">连接钱包</button>
       <button class="menu-btn" onclick="openMenu()" aria-label="打开菜单" data-i18n="menu_btn">菜单</button>
@@ -706,26 +706,6 @@
           <div class="benefit">
             <div><div class="bt" data-i18n="gen_b3t">恒定稀缺 · 仅 120 张</div><div class="bd" data-i18n="gen_b3d">总量恒定、<b>分完即止</b>、每地址仅限 1 张，创世身份不可复制，稀缺即价值。</div></div>
           </div>
-          <div class="benefit">
-            <div><div class="bt" data-i18n="gen_b4t">创世股东身份</div><div class="bd" data-i18n="gen_b4d">首批 60 张面向初创股东，越早入局，越早锁定全生态终身分红权。</div></div>
-          </div>
-        </div>
-
-        <div class="sh-action">
-          <!-- 创世卡牌销售进度条 -->
-          <div class="genesis-progress-wrap">
-            <div class="gp-header">
-              <span class="gp-label">创世股东招募进度</span>
-              <span class="gp-count"><b>100%</b></span>
-            </div>
-            <div class="gp-bar-bg">
-              <div class="gp-bar-fill" style="width:100%"></div>
-              <span class="gp-pct">100%</span>
-            </div>
-          </div>
-
-          <div class="sh-note">本次核心股东名额招募工作现已全部圆满结束，所有认购名额已满。超额认购资金将按支付地址原路全额退回。</div>
-
         </div>
       </div>
     </section>
@@ -774,9 +754,10 @@
       <div class="grid g2">
         <div class="card">
           <div class="ct" data-i18n="mech_sell_t">卖出机制</div>
-          <div class="cd" data-i18n="mech_sell_d">把 <b>MMC</b> 转进合约地址，<b>MDC 马上到账钱包</b>，一笔交易直接到账，无需提前授权。</div>
+          <div class="cd" data-i18n="mech_sell_d">在任意去中心swap,如博饼等，<b>MMC</b>自由交易，<b>MDC</b>马上到账钱包。</div>
         </div>
         <div class="card">
+          <div style="font-size:13px;color:#ff6b00;margin-bottom:10px;"><b>⚠️ 撤LP和交易代币，必须在去中心化SWAP进行</b></div>
           <div class="ct" data-i18n="mech_lp_t">撤 MMC-LP 规则</div>
           <ul class="rules" data-i18n="mech_lp_d">
             <li>MDC <b>全部到账</b></li>
@@ -942,19 +923,7 @@
       
     </section>
 
-    <!-- 社区 -->
-    <section class="block">
-      <div class="community">
-        <div class="logo-badge" style="margin-bottom:18px;"><svg class="logo-ico"><use href="#mmcLogo"></use></svg></div>
-        <div class="vis" data-i18n="comm_vis">遇见造化 · 我命由我</div>
-        <div class="hero-cta" style="margin-top:24px;">
-          <a class="cta cta-gold" href="#genesis" data-i18n="comm_cta1">认购创世卡牌</a>
-          <a class="cta cta-ghost" href="cards-posters.html" data-i18n="comm_cta2">卡牌海报</a>
-          <a class="cta cta-ghost" href="docs/mmc-ppt.html" data-i18n="comm_cta3">课件</a>
-          <a class="cta cta-ghost" href="docs/mmc-whitepaper.html" data-i18n="comm_cta4">阅读白皮书</a>
-        </div>
-      </div>
-    </section>
+
 
   </main>
 
